@@ -44,6 +44,12 @@
       },
       "runtime" : {
          "requires" : {
+            "File::ShareDir" : "0",
+            "Getopt::Long" : "0",
+            "Path::Tiny" : "0",
+            "Plack" : "0",
+            "Text::MicroTemplate" : "0",
+            "Try::Tiny" : "0",
             "perl" : "5.008005"
          }
       },
