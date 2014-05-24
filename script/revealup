@@ -1,0 +1,6 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use App::revealup::cli;
+
+App::revealup::cli->new->run(@ARGV);
