@@ -60,6 +60,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/yusukebe/App-revealup/issues"
+      },
+      "homepage" : "https://github.com/yusukebe/App-revealup",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/yusukebe/App-revealup.git",
+         "web" : "https://github.com/yusukebe/App-revealup"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:YUSUKEBE"
 }

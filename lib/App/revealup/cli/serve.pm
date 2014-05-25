@@ -49,15 +49,15 @@ sub app {
                 [$html]
             ];
         }else{
-            my $path = path('.', $env->{PATH_INFO});
+            my $path;
             if($env->{PATH_INFO} =~ m!\.(?:md|mkdn)$!) {
-                # DO NOTHING
+                $path = path('.', $env->{PATH_INFO});
             }else{
-                if($env->{PATH_INFO} =~ m!$_theme_path$!){
-                    if($path->exists) {
+                if($_theme_path && $env->{PATH_INFO} =~ m!$_theme_path$!){
+                    if($_theme_path->exists) {
                         $path = path('.', $_theme_path);
                     }else{
-                        $path = path('share','revealjs','css','theme', $_theme_path);
+                        $path = path('share','revealjs','css','theme',$_theme_path->relative);
                     }
                 }else{
                     my $revealjs_dir = $self->share_path([qw/share revealjs/]);
