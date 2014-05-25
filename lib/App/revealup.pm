@@ -12,15 +12,25 @@ __END__
 
 =head1 NAME
 
-App::revealup - It's new $module
+App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 =head1 SYNOPSIS
 
-    use App::revealup;
+    revealup serve slide.md --port 5000
 
 =head1 DESCRIPTION
 
-App::revealup is ...
+App::revealup is a web application mobule to showing Markdown with reveal.js. Markdown texts will be like a slideshow if you use this revealup command.
+
+=head2 Sample Markdown
+
+    ## This is Title
+    
+    Description... The page separetor charactors are '---'
+    
+    ---
+    
+    ## This is second title
 
 =head1 LICENSE
 

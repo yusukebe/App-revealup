@@ -3,7 +3,7 @@ use Test::More;
 use Test::Fatal;
 use App::revealup::cli::serve;
 
-my $test_dir = App::revealup::cli::serve->share_dir([qw/t/]);
+my $test_dir = App::revealup::cli::serve->share_path([qw/t/]);
 ok $test_dir;
 ok $test_dir->is_dir();
 

@@ -4,3 +4,19 @@ use warnings;
 use App::revealup::cli;
 
 App::revealup::cli->new->run(@ARGV);
+
+
+__END__
+
+=head1 NAME
+
+revealpl - Web app for showing Markdown as slides
+
+=head1 SYNOPSIS
+
+revealpl -p 5000
+
+ Options:
+   -p    HTTP Port Number
+
+=cut

@@ -1,4 +1,4 @@
-? my ($reveal_path, $filename) = @_;
+? my ($filename, $theme) = @_;
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,15 +6,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="<?= $reveal_path ?>/css/reveal.min.css">
-    <link rel="stylesheet" href="<?= $reveal_path ?>/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="<?= $reveal_path ?>/lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/reveal.min.css">
+? if($theme) {
+    <link rel="stylesheet" href="<?= $theme ?>" id="theme">
+? }else{
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+? }
+    <link rel="stylesheet" href="lib/css/zenburn.css">
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
-      document.write( '<link rel="stylesheet" href="<?= $reveal_path ?>/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     </script>
     <!--[if lt IE 9]>
-      <script src="<?= $reveal_path ?>/lib/js/html5shiv.js"></script>
+      <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
   </head>
 
@@ -26,9 +30,9 @@
         </section>
     </div>
 
-    <script src="<?= $reveal_path ?>/lib/js/head.min.js"></script>
-    <script src="<?= $reveal_path ?>/js/reveal.min.js"></script>
-    <script src="<?= $reveal_path ?>/js/jquery.min.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     <script>
       Reveal.initialize({
@@ -40,12 +44,12 @@
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
         // Optional libraries used to extend on reveal.js
         dependencies: [
-          { src: '<?= $reveal_path ?>/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '<?= $reveal_path ?>/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '<?= $reveal_path ?>/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '<?= $reveal_path ?>/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '<?= $reveal_path ?>/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '<?= $reveal_path ?>/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
     </script>

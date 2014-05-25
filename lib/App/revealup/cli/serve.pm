@@ -9,12 +9,18 @@ use Plack::Runner;
 
 my $_plack_port = 5000;
 my $_dry_run = 0;
+my $_theme_path = '';
 
 sub run {
     my ($self, @args) = @_;
-    GetOptionsFromArray( \@args, 'p|port=s' => \$_plack_port, 'dry-run' => \$_dry_run );
+    my $_theme;
+    GetOptionsFromArray( \@args, 
+                         'p|port=s' => \$_plack_port,
+                         'theme=s' => \$_theme,
+                         'dry-run' => \$_dry_run );
     my $filename = shift @args;
     die "Markdown filename is required in args." unless $filename;
+    $_theme_path = path('.', $_theme) if $_theme;
 
     my $html = $self->render($filename);
     my $app = $self->app($html);
@@ -25,11 +31,10 @@ sub run {
 
 sub render {
     my ($self, $filename) = @_;
-    my $template_dir = $self->share_dir([qw/share templates/]);
-    my $revealjs_dir = $self->share_dir([qw/share revealjs/]);
+    my $template_dir = $self->share_path([qw/share templates/]);
     my $template = $template_dir->child('slide.html.mt');
     my $content = $template->slurp_utf8();
-    my $html = render_mt($content, $revealjs_dir->relative(), $filename)->as_string();
+    my $html = render_mt($content, $filename, $_theme_path)->as_string();
     return $html;
 }
 
@@ -41,10 +46,24 @@ sub app {
             return [
                 200,
                 ['Content-Type' => 'text/html', 'Content-Length' => length $html],
-                [$html ]
+                [$html]
             ];
         }else{
             my $path = path('.', $env->{PATH_INFO});
+            if($env->{PATH_INFO} =~ m!\.(?:md|mkdn)$!) {
+                # DO NOTHING
+            }else{
+                if($env->{PATH_INFO} =~ m!$_theme_path$!){
+                    if($path->exists) {
+                        $path = path('.', $_theme_path);
+                    }else{
+                        $path = path('share','revealjs','css','theme', $_theme_path);
+                    }
+                }else{
+                    my $revealjs_dir = $self->share_path([qw/share revealjs/]);
+                    $path = path($revealjs_dir, $env->{PATH_INFO});
+                }
+            }
             if( $path->exists ) {
                 my $c = $path->slurp();
                 return [200, [ 'Content-Length' => length $c ], [$c]];
@@ -55,15 +74,15 @@ sub app {
     };
 }
 
-sub share_dir {
+sub share_path {
     my ($self, $p) = @_;
     die "Parameter must be ARRAY ref" unless ref $p eq 'ARRAY';
     my $path = path(@$p);
     return $path if $path->exists();
     shift @$p;
     my $dist_dir = dist_dir('App-revealup');
-    $path = path($dist_dir, $p);
-    return path;
+    return path($dist_dir, @$p);
 }
 
 1;
+

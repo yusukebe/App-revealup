@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "HTTP Server app for viewing Markdown texts as slides",
    "author" : [
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
