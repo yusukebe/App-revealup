@@ -10,13 +10,14 @@ __END__
 
 =head1 NAME
 
-revealpl - Web app for showing Markdown as slides
+revealup - Web app for showing Markdown as slides
 
 =head1 SYNOPSIS
 
-revealpl -p 5000
+revealup serve -p 5000
 
  Options:
-   -p    HTTP Port Number
+   -p        HTTP Port Number
+   --theme   CSS filename or path
 
 =cut
