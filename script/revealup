@@ -1,10 +1,10 @@
-#!/usr/bin/env perl
+#!perl
 use strict;
+use 5.008001;
 use warnings;
 use App::revealup::cli;
 
 App::revealup::cli->new->run(@ARGV);
-
 
 __END__
 

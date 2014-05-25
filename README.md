@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/yusukebe/App-revealup.png?branch=master)](https://travis-ci.org/yusukebe/App-revealup)
 # NAME
 
 App::revealup - HTTP Server app for viewing Markdown texts as slides
