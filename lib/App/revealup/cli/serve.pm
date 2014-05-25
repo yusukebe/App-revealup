@@ -58,7 +58,8 @@ sub app {
                     if($_theme_path->exists) {
                         $path = path('.', $_theme_path);
                     }else{
-                        $path = path('share','revealjs','css','theme',$_theme_path->relative);
+                        my $revealjs_theme_path = $self->share_path([qw/share revealjs css theme/]);
+                        $path = $revealjs_theme_path->child($_theme_path->basename);
                     }
                 }else{
                     my $revealjs_dir = $self->share_path([qw/share revealjs/]);
