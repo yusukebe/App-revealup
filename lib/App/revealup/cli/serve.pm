@@ -19,7 +19,8 @@ sub run {
                          'theme=s' => \$_theme,
                          'dry-run' => \$_dry_run );
     my $filename = shift @args;
-    die "Markdown filename is required in args." unless $filename;
+    die "Markdown filename is required in args.\n" unless $filename;
+    die "File: $filename is not found.\n" unless path($filename)->exists;
     $_theme_path = path('.', $_theme) if $_theme;
 
     my $html = $self->render($filename);
@@ -61,17 +62,22 @@ sub app {
                     }
                 }else{
                     my $revealjs_dir = $self->share_path([qw/share revealjs/]);
-                    $path = path($revealjs_dir, $env->{PATH_INFO});
+                    $path = $revealjs_dir->child($env->{PATH_INFO});
                 }
             }
-            if( $path->exists ) {
-                my $c = $path->slurp();
-                return [200, [ 'Content-Length' => length $c ], [$c]];
-            }else{
-                return [404, [], ['not found.']];
-            }
+            return $self->path_to_res($path);
         }
     };
+}
+
+sub path_to_res {
+    my ($self, $path) = @_;
+    if( $path && $path->exists ) {
+        my $c = $path->slurp();
+        return [200, [ 'Content-Length' => length $c ], [$c]];
+    }else{
+        return [404, [], ['not found.']];
+    }
 }
 
 sub share_path {
