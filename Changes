@@ -2,6 +2,8 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+    - fixed bugs about themes
+
 0.01 2014-05-25T10:32:31Z
 
     - original version
