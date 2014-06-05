@@ -1,6 +1,5 @@
 use strict;
 use Test::More;
-use Test::Fatal;
 use App::revealup::cli::serve;
 
 my $test_dir = App::revealup::cli::serve->share_path([qw/t/]);
