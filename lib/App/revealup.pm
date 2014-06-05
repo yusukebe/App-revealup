@@ -31,12 +31,12 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
     ---
     
     ## This is second title
-	
-	The vertical slide separator characters are '___'
-	
-	___
-	
-	## This is a third title
+    
+    The vertical slide separator characters are '___'
+    
+    ___
+    
+    ## This is a third title
 
 =head1 LICENSE
 
