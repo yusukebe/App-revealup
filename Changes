@@ -2,6 +2,12 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.04 2014-06-06T22:04:08Z
+
+    - support transition option on serve command
+    - update documents
+    - don't show verbose message when plackup
+
 0.03 2014-06-06T08:02:04Z
 
     - removed Test::Fatal dependency, thanks to sillymoose
