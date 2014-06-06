@@ -14,10 +14,20 @@ revealup - Web app for showing Markdown as slides
 
 =head1 SYNOPSIS
 
-revealup serve -p 5000
+    $ revealup serve -p 5000
 
- Options:
-   -p        HTTP Port Number
-   --theme   CSS filename or path
+=head1 Commands
+
+=head2 serve
+
+Options:
+
+=over 4
+
+=item -p        : HTTP Port Number
+
+=item --theme   : CSS filename or path
+
+=back
 
 =cut
