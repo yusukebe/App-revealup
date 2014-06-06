@@ -49,25 +49,24 @@ sub app {
                 ['Content-Type' => 'text/html', 'Content-Length' => length $html],
                 [$html]
             ];
+        };
+        my $path;
+        if($env->{PATH_INFO} =~ m!\.(?:md|mkdn)$!) {
+            $path = path('.', $env->{PATH_INFO});
         }else{
-            my $path;
-            if($env->{PATH_INFO} =~ m!\.(?:md|mkdn)$!) {
-                $path = path('.', $env->{PATH_INFO});
-            }else{
-                if($_theme_path && $env->{PATH_INFO} =~ m!$_theme_path$!){
-                    if($_theme_path->exists) {
-                        $path = path('.', $_theme_path);
-                    }else{
-                        my $revealjs_theme_path = $self->share_path([qw/share revealjs css theme/]);
-                        $path = $revealjs_theme_path->child($_theme_path->basename);
-                    }
+            if($_theme_path && $env->{PATH_INFO} =~ m!$_theme_path$!){
+                if($_theme_path->exists) {
+                    $path = path('.', $_theme_path);
                 }else{
-                    my $revealjs_dir = $self->share_path([qw/share revealjs/]);
-                    $path = $revealjs_dir->child($env->{PATH_INFO});
+                    my $reveal_theme_path = $self->share_path([qw/share revealjs css theme/]);
+                    $path = $reveal_theme_path->child($_theme_path->basename);
                 }
+            }else{
+                my $reveal_dir = $self->share_path([qw/share revealjs/]);
+                $path = $reveal_dir->child($env->{PATH_INFO});
             }
-            return $self->path_to_res($path);
         }
+        return $self->path_to_res($path);
     };
 }
 
@@ -76,9 +75,8 @@ sub path_to_res {
     if( $path && $path->exists ) {
         my $c = $path->slurp();
         return [200, [ 'Content-Length' => length $c ], [$c]];
-    }else{
-        return [404, [], ['not found.']];
     }
+    return [404, [], ['not found.']];
 }
 
 sub share_path {
@@ -92,4 +90,3 @@ sub share_path {
 }
 
 1;
-
