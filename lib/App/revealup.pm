@@ -16,7 +16,7 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 =head1 SYNOPSIS
 
-    revealup serve slide.md --port 5000
+    $ revealup serve slide.md --port 5000
 
 =head1 DESCRIPTION
 
@@ -50,4 +50,3 @@ it under the same terms as Perl itself.
 Yusuke Wada E<lt>yusuke@kamawada.comE<gt>
 
 =cut
-
