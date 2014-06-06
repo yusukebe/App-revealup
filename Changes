@@ -2,6 +2,10 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.03 2014-06-05T13:50:00Z
+
+    - removed Test::Fatal dependency
+
 0.02 2014-05-25T11:35:55Z
 
     - fixed bugs about themes
