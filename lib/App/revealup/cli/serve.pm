@@ -19,8 +19,8 @@ sub run {
                          'theme=s' => \$_theme,
                          'dry-run' => \$_dry_run );
     my $filename = shift @args;
-    die "Markdown filename is required in args.\n" unless $filename;
-    die "File: $filename is not found.\n" unless path($filename)->exists;
+    die "Can't locate (Markdown file)\n" unless $filename;
+    die "Can't locate $filename\n" unless path($filename)->exists;
     $_theme_path = path('.', $_theme) if $_theme;
 
     my $html = $self->render($filename);
