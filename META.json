@@ -71,6 +71,9 @@
          "web" : "https://github.com/yusukebe/App-revealup"
       }
    },
-   "version" : "0.02",
-   "x_authority" : "cpan:YUSUKEBE"
+   "version" : "0.03",
+   "x_authority" : "cpan:YUSUKEBE",
+   "x_contributors" : [
+      "David Farrell <davidnmfarrell@gmail.com>"
+   ]
 }
