@@ -2,7 +2,6 @@ package App::revealup::cli;
 use strict;
 use warnings;
 use Try::Tiny;
-use Pod::Usage;
 use App::revealup::cli::serve;
 
 sub new {

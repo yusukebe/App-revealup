@@ -38,6 +38,14 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
     
     ## This is a third title
 
+=head1 COMMANDS
+
+=over 4
+
+=item serve
+
+=back
+
 =head1 LICENSE
 
 Copyright (C) Yusuke Wada.

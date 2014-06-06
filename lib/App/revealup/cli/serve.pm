@@ -6,6 +6,7 @@ use File::ShareDir qw/dist_dir/;
 use Path::Tiny qw/path/;
 use Text::MicroTemplate qw/render_mt/;
 use Plack::Runner;
+use Pod::Usage;
 
 my $_plack_port = 5000;
 my $_dry_run = 0;
@@ -19,10 +20,12 @@ sub run {
                          'theme=s' => \$_theme,
                          'dry-run' => \$_dry_run );
     my $filename = shift @args;
-    die "Can't locate (Markdown file)\n" unless $filename;
-    die "Can't locate $filename\n" unless path($filename)->exists;
-    $_theme_path = path('.', $_theme) if $_theme;
 
+    if( !$filename || !path($filename)->exists ) {
+        pod2usage({-input => __FILE__, -verbose => 2, -output => \*STDERR});
+    }
+
+    $_theme_path = path('.', $_theme) if $_theme;
     my $html = $self->render($filename);
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
@@ -90,3 +93,31 @@ sub share_path {
 }
 
 1;
+
+__END__
+
+=head1 SYNOPSIS
+
+    $ revealup serve -p 5000 markdown.md
+
+=head1 DESCRIPTION
+
+I<serve> commnad makes your markdown texts as a HTTP Web application for slideshow.
+Run C<revealup serve> the with markdown filename and options.
+And with your browser access such url I<http://localhost:5000/>.
+
+Options:
+
+=over 4
+
+=item -p        : HTTP Port Number
+
+=item --theme   : CSS filename or path
+
+=back
+
+=head1 MORE INFORMATION
+
+    $ perldoc App::revealup
+
+=cut

@@ -6,28 +6,3 @@ use App::revealup::cli;
 
 App::revealup::cli->new->run(@ARGV);
 
-__END__
-
-=head1 NAME
-
-revealup - Web app for showing Markdown as slides
-
-=head1 SYNOPSIS
-
-    $ revealup serve -p 5000
-
-=head1 Commands
-
-=head2 serve
-
-Options:
-
-=over 4
-
-=item -p        : HTTP Port Number
-
-=item --theme   : CSS filename or path
-
-=back
-
-=cut
