@@ -26,7 +26,7 @@ sub run {
     my $html = $self->render($filename);
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
-    $runner->parse_options("--port=$_plack_port");
+    $runner->parse_options("--port=$_plack_port --no-default-middleware");
     $runner->run($app) if !$_dry_run;
 }
 
