@@ -11,6 +11,7 @@ use Pod::Usage;
 my $_plack_port = 5000;
 my $_dry_run = 0;
 my $_theme_path = '';
+my $_transition = 'default';
 
 sub run {
     my ($self, @args) = @_;
@@ -18,7 +19,8 @@ sub run {
     GetOptionsFromArray( \@args, 
                          'p|port=s' => \$_plack_port,
                          'theme=s' => \$_theme,
-                         'dry-run' => \$_dry_run );
+                         'transition=s' => \$_transition,
+                         '_dry-run' => \$_dry_run );
     my $filename = shift @args;
 
     if( !$filename || !path($filename)->exists ) {
@@ -29,7 +31,8 @@ sub run {
     my $html = $self->render($filename);
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
-    $runner->parse_options("--port=$_plack_port --no-default-middleware");
+    $runner->parse_options("--port=$_plack_port");
+    $runner->parse_options("--no-default-middleware");
     $runner->run($app) if !$_dry_run;
 }
 
@@ -38,7 +41,7 @@ sub render {
     my $template_dir = $self->share_path([qw/share templates/]);
     my $template = $template_dir->child('slide.html.mt');
     my $content = $template->slurp_utf8();
-    my $html = render_mt($content, $filename, $_theme_path)->as_string();
+    my $html = render_mt($content, $filename, $_theme_path, $_transition)->as_string();
     return $html;
 }
 
@@ -110,9 +113,11 @@ Options:
 
 =over 4
 
-=item -p        : HTTP Port Number
+=item -p           : HTTP Port Number
 
-=item --theme   : CSS filename or path
+=item --theme      : CSS filename or path
+
+=item --transition : default/cube/page/concave/zoom/linear/fade/none
 
 =back
 

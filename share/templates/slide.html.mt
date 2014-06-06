@@ -1,4 +1,4 @@
-? my ($filename, $theme) = @_;
+? my ($filename, $theme, $transition) = @_;
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,7 +41,7 @@
         history: true,
         center: true,
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        transition: Reveal.getQueryHash().transition || '<?= $transition ?>', // default/cube/page/concave/zoom/linear/fade/none
         // Optional libraries used to extend on reveal.js
         dependencies: [
           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },

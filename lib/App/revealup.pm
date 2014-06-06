@@ -53,11 +53,11 @@ Copyright (C) Yusuke Wada.
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-=head2 reveal.js
+=head1 reveal.js
+
+reveal.js is by Hakim El Hattab, L<http://hakim.se>.
 
 L<https://github.com/hakimel/reveal.js/>
-
-Copyright (C) 2014 Hakim El Hattab, L<http://hakim.se>
 
 =head1 AUTHOR
 

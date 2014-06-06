@@ -5,7 +5,7 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 # SYNOPSIS
 
-    revealup serve slide.md --port 5000
+    $ revealup serve slide.md --port 5000
 
 # DESCRIPTION
 
@@ -27,12 +27,22 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
     
     ## This is a third title
 
+# COMMANDS
+
+- serve
+
 # LICENSE
 
 Copyright (C) Yusuke Wada.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
+# reveal.js
+
+reveal.js is by Hakim El Hattab, [http://hakim.se](http://hakim.se).
+
+[https://github.com/hakimel/reveal.js/](https://github.com/hakimel/reveal.js/)
 
 # AUTHOR
 
