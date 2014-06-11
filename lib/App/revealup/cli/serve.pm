@@ -72,9 +72,12 @@ sub app {
                     $path = $reveal_theme_path->child($_theme_path->basename);
                 }
             }else{
-                my $reveal_dir = $self->App::revealup::util::([qw/share revealjs/]);
+                my $reveal_dir = App::revealup::util::share_path([qw/share revealjs/]);
                 $path = $reveal_dir->child($env->{PATH_INFO});
             }
+        }
+        if( !$path->exists ) {
+            warn "[Warning] $path does not exist.\n";
         }
         return App::revealup::util::path_to_res($path);
     };

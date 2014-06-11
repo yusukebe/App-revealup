@@ -6,7 +6,7 @@ use Path::Tiny qw/path/;
 use App::revealup::util;
 
 sub path_to_res {
-    my ($path) = @_;
+    my $path = shift;
     if( $path && $path->exists ) {
         my $c = $path->slurp();
         return [200, [ 'Content-Length' => length $c ], [$c]];
@@ -15,7 +15,7 @@ sub path_to_res {
 }
 
 sub share_path {
-    my ($p) = @_;
+    my $p = shift;
     die "Parameter must be ARRAY ref" unless ref $p eq 'ARRAY';
     my $path = path(@$p);
     return $path if $path->exists();

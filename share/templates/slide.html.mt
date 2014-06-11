@@ -32,7 +32,6 @@
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
-    <script src="js/jquery.min.js"></script>
 
     <script>
       Reveal.initialize({

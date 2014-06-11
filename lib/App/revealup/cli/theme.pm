@@ -54,7 +54,7 @@ __END__
 
 =head1 DESCRIPTION
 
-I<theme> command with I<generate> sub-command makes skelton of theme CSS file.
+I<theme> command with I<generate> sub-command makes skeleton of theme CSS file.
 
 =head1 Options
 
