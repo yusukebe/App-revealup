@@ -63,27 +63,7 @@ I<theme> command with I<generate> sub-command makes skeleton of theme CSS file.
 The base CSS file name that is included in reveal.js package.
 Available base theme CSS names are below.
 
-=over 4
-
-=item beige.css
-
-=item blood.css
-
-=item default.css
-
-=item moon.css
-
-=item night.css
-
-=item serif.css
-
-=item simple.css
-
-=item sky.css
-
-=item solarized.css  
-
-=back
+    beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
 
 =head2 --output
 

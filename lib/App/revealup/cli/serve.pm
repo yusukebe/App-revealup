@@ -13,6 +13,7 @@ my $_plack_port = 5000;
 my $_dry_run = 0;
 my $_theme_path = '';
 my $_transition = 'default';
+my $_size = { width => 960, height => 700 };
 
 sub run {
     my ($self, @args) = @_;
@@ -21,6 +22,8 @@ sub run {
                          'p|port=s' => \$_plack_port,
                          'theme=s' => \$_theme,
                          'transition=s' => \$_transition,
+                         'width=i' => \$_size->{width},
+                         'height=i' => \$_size->{height},
                          '_dry-run' => \$_dry_run );
     my $filename = shift @args;
 
@@ -35,8 +38,8 @@ sub run {
     my $html = $self->render($filename);
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
-    $runner->parse_options("--port=$_plack_port");
     $runner->parse_options("--no-default-middleware");
+    $runner->set_options(port => $_plack_port);
     $runner->run($app) if !$_dry_run;
 }
 
@@ -45,7 +48,12 @@ sub render {
     my $template_dir = App::revealup::util::share_path([qw/share templates/]);
     my $template = $template_dir->child('slide.html.mt');
     my $content = $template->slurp_utf8();
-    my $html = render_mt($content, $filename, $_theme_path, $_transition)->as_string();
+    my $html = render_mt(
+        $content,
+        $filename,
+        $_theme_path,
+        $_transition,
+        $_size )->as_string();
     return $html;
 }
 
@@ -80,6 +88,11 @@ sub app {
         $path = $reveal_dir->child($env->{PATH_INFO});
         return App::revealup::util::path_to_res($path) if $path->exists;
         warn "[Warning] $path does not exist.\n";
+        return [
+            404,
+            ['Content-Type' => 'text/plain'],
+            ['Not Found']
+        ];
     };
 }
 
@@ -107,51 +120,21 @@ HTTP port number
 
 CSS filename or original CSS file path. The reveal.js default CSS filenames are below.
 
-=over 4
-
-=item beige.css
-
-=item blood.css
-
-=item default.css
-
-=item moon.css
-
-=item night.css
-
-=item serif.css
-
-=item simple.css
-
-=item sky.css
-
-=item solarized.css  
-
-=back
+    beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
 
 =head2 --transition
 
 Trasition effects for slides.
 
-=over 4
+    default / cube / page / concave / zoom / linear / fade / none
 
-=item default
+=head2 width
 
-=item cube
+Width of a slide's size. Default is 960.
 
-=item page
+=head2 height
 
-=item concave
-
-=item zoom
-
-=item linear
-
-=item fade
-
-=item none
-
-=back
+Height of a slide's size. Default is 700.
 
 =head1 MORE INFORMATION
 

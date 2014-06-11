@@ -2,6 +2,9 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+    - enable --port option
+    - update sub-command pod
+
 0.06 2014-06-11T06:21:30Z
 
     - fixed about relative file path in markdown texts.

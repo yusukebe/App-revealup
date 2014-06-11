@@ -1,4 +1,4 @@
-? my ($filename, $theme, $transition) = @_;
+? my ($filename, $theme, $transition, $size) = @_;
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,6 +35,8 @@
 
     <script>
       Reveal.initialize({
+        width: <?= $size->{width} ?>,
+        height: <?= $size->{height} ?>,
         controls: true,
         progress: true,
         history: true,
