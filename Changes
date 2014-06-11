@@ -2,6 +2,11 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.05 2014-06-11T05:43:40Z
+
+    - make 'theme' command
+    - fixed some bugs
+
 0.04 2014-06-06T22:04:08Z
 
     - support transition option on serve command
