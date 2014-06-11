@@ -4,6 +4,7 @@ Revision history for Perl extension App-revealup
 
     - enable --port option
     - update sub-command pod
+    - made 'width' and 'height' commands
 
 0.06 2014-06-11T06:21:30Z
 
@@ -11,7 +12,7 @@ Revision history for Perl extension App-revealup
 
 0.05 2014-06-11T05:43:40Z
 
-    - make 'theme' command
+    - made 'theme' command
     - fixed some bugs
 
 0.04 2014-06-06T22:04:08Z
