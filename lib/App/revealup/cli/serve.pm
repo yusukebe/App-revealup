@@ -27,7 +27,10 @@ sub run {
         pod2usage({-input => __FILE__, -verbose => 2, -output => \*STDERR});
     }
 
-    $_theme_path = path('.', $_theme) if $_theme;
+    if($_theme) {
+        $_theme .= '.css' if $_theme !~ m!.+\.css$!;
+        $_theme_path = path('.', $_theme);
+    }
     my $html = $self->render($filename);
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
@@ -105,19 +108,63 @@ __END__
 
 =head1 DESCRIPTION
 
-I<serve> commnad makes your markdown texts as a HTTP Web application for slideshow.
+I<serve> command makes your markdown texts as a HTTP Web application for slide show.
 Run C<revealup serve> the with markdown filename and options.
 And with your browser access such url I<http://localhost:5000/>.
 
-Options:
+=head1 Options
+
+=head2 -p or --port
+
+HTTP port number
+
+=head2 --theme
+
+CSS filename or original CSS file path. The reveal.js default CSS filenames are below.
 
 =over 4
 
-=item -p           : HTTP Port Number
+=item beige.css
 
-=item --theme      : CSS filename or path
+=item blood.css
 
-=item --transition : default/cube/page/concave/zoom/linear/fade/none
+=item default.css
+
+=item moon.css
+
+=item night.css
+
+=item serif.css
+
+=item simple.css
+
+=item sky.css
+
+=item solarized.css  
+
+=back
+
+=head2 --transition
+
+Trasition effects for slides.
+
+=over 4
+
+=item default
+
+=item cube
+
+=item page
+
+=item concave
+
+=item zoom
+
+=item linear
+
+=item fade
+
+=item none
 
 =back
 
