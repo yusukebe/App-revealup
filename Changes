@@ -2,6 +2,8 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.07 2014-06-11T11:20:22Z
+
     - enable --port option
     - update sub-command pod
     - made 'width' and 'height' commands
