@@ -60,26 +60,26 @@ sub app {
                 [$html]
             ];
         };
+
         my $path;
-        if($env->{PATH_INFO} =~ m!\.(?:md|mkdn)$!) {
-            $path = path('.', $env->{PATH_INFO});
-        }else{
-            if($_theme_path && $env->{PATH_INFO} =~ m!$_theme_path$!){
-                if($_theme_path->exists) {
-                    $path = path('.', $_theme_path);
-                }else{
-                    my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs css theme/]);
-                    $path = $reveal_theme_path->child($_theme_path->basename);
-                }
+        # theme
+        if($_theme_path && $env->{PATH_INFO} =~ m!$_theme_path$!){
+            if($_theme_path->exists) {
+                $path = path('.', $_theme_path);
             }else{
-                my $reveal_dir = App::revealup::util::share_path([qw/share revealjs/]);
-                $path = $reveal_dir->child($env->{PATH_INFO});
+                my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs css theme/]);
+                $path = $reveal_theme_path->child($_theme_path->basename);
             }
+            return App::revealup::util::path_to_res($path) if $path->exists;
         }
-        if( !$path->exists ) {
-            warn "[Warning] $path does not exist.\n";
-        }
-        return App::revealup::util::path_to_res($path);
+        
+        $path = path('.', $env->{PATH_INFO});
+        return App::revealup::util::path_to_res($path) if $path->exists;
+
+        my $reveal_dir = App::revealup::util::share_path([qw/share revealjs/]);
+        $path = $reveal_dir->child($env->{PATH_INFO});
+        return App::revealup::util::path_to_res($path) if $path->exists;
+        warn "[Warning] $path does not exist.\n";
     };
 }
 

@@ -2,6 +2,10 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.06 2014-06-11T06:21:30Z
+
+    - fixed about relative file path in markdown texts.
+
 0.05 2014-06-11T05:43:40Z
 
     - make 'theme' command
