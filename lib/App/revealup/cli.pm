@@ -23,6 +23,7 @@ sub run {
         no warnings 'ambiguous';
         if(eval "require $klass;1;"){
             $klass->run(@commands);
+            exit;
         }
     }
     system "perldoc App::revealup";

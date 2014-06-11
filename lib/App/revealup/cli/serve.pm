@@ -7,6 +7,7 @@ use Path::Tiny qw/path/;
 use Text::MicroTemplate qw/render_mt/;
 use Plack::Runner;
 use Pod::Usage;
+use App::revealup::util;
 
 my $_plack_port = 5000;
 my $_dry_run = 0;
@@ -41,7 +42,7 @@ sub run {
 
 sub render {
     my ($self, $filename) = @_;
-    my $template_dir = $self->share_path([qw/share templates/]);
+    my $template_dir = App::revealup::util::share_path([qw/share templates/]);
     my $template = $template_dir->child('slide.html.mt');
     my $content = $template->slurp_utf8();
     my $html = render_mt($content, $filename, $_theme_path, $_transition)->as_string();
@@ -67,35 +68,16 @@ sub app {
                 if($_theme_path->exists) {
                     $path = path('.', $_theme_path);
                 }else{
-                    my $reveal_theme_path = $self->share_path([qw/share revealjs css theme/]);
+                    my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs css theme/]);
                     $path = $reveal_theme_path->child($_theme_path->basename);
                 }
             }else{
-                my $reveal_dir = $self->share_path([qw/share revealjs/]);
+                my $reveal_dir = $self->App::revealup::util::([qw/share revealjs/]);
                 $path = $reveal_dir->child($env->{PATH_INFO});
             }
         }
-        return $self->path_to_res($path);
+        return App::revealup::util::path_to_res($path);
     };
-}
-
-sub path_to_res {
-    my ($self, $path) = @_;
-    if( $path && $path->exists ) {
-        my $c = $path->slurp();
-        return [200, [ 'Content-Length' => length $c ], [$c]];
-    }
-    return [404, [], ['not found.']];
-}
-
-sub share_path {
-    my ($self, $p) = @_;
-    die "Parameter must be ARRAY ref" unless ref $p eq 'ARRAY';
-    my $path = path(@$p);
-    return $path if $path->exists();
-    shift @$p;
-    my $dist_dir = dist_dir('App-revealup');
-    return path($dist_dir, @$p);
 }
 
 1;

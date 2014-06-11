@@ -1,8 +1,9 @@
 use strict;
 use Test::More;
 use App::revealup::cli::serve;
+use App::revealup::util;
 
-my $test_dir = App::revealup::cli::serve->share_path([qw/t/]);
+my $test_dir = App::revealup::util::share_path([qw/t/]);
 ok $test_dir;
 ok $test_dir->is_dir();
 
