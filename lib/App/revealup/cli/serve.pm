@@ -11,24 +11,26 @@ use App::revealup::util;
 
 my $_plack_port = 5000;
 my $_dry_run = 0;
+my $_theme;
 my $_theme_path = '';
 my $_transition = 'default';
 my $_size = { width => 960, height => 700 };
 
 sub run {
     my ($self, @args) = @_;
-    my $_theme;
-    GetOptionsFromArray( \@args, 
-                         'p|port=s' => \$_plack_port,
-                         'theme=s' => \$_theme,
-                         'transition=s' => \$_transition,
-                         'width=i' => \$_size->{width},
-                         'height=i' => \$_size->{height},
-                         '_dry-run' => \$_dry_run );
-    my $filename = shift @args;
+    parse_options(
+        \@args,
+        'p|port=s' => \$_plack_port,
+        'theme=s' => \$_theme,
+        'transition=s' => \$_transition,
+        'width=i' => \$_size->{width},
+        'height=i' => \$_size->{height},
+        '_dry-run' => \$_dry_run
+    );
 
+    my $filename = shift @args;
     if( !$filename || !path($filename)->exists ) {
-        pod2usage({-input => __FILE__, -verbose => 2, -output => \*STDERR});
+        pod2usage( { -input => __FILE__, -verbose => 2, -output => \*STDERR } );
     }
 
     if($_theme) {

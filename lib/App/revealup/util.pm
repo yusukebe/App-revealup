@@ -1,9 +1,23 @@
 package App::revealup::util;
 use strict;
 use warnings;
+use base qw/Exporter/;
 use File::ShareDir qw/dist_dir/;
 use Path::Tiny qw/path/;
-use App::revealup::util;
+use Getopt::Long qw//;
+
+our @EXPORT = qw/path_to_res share_path parse_options/;
+
+sub parse_options {
+    my ($args, @options) = @_;
+    my $p = Getopt::Long::Parser->new(
+        config => [ "no_ignore_case", "no_auto_abbrev" ],
+    );
+    my $result = $p->getoptionsfromarray(
+        $args, @options
+    );
+    return $result;
+}
 
 sub path_to_res {
     my $path = shift;

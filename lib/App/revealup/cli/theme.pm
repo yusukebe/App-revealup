@@ -13,10 +13,12 @@ my $_output = 'original.css';
 
 sub run {
     my ($self, @args) = @_;
-    my $result = GetOptionsFromArray( \@args, 
-                         'base=s' => \$_base,
-                         'output=s' => \$_output,
-                         '_dry-run' => \$_dry_run );
+    my $result = parse_options(
+        \@args,
+        'base=s'   => \$_base,
+        'output=s' => \$_output,
+        '_dry-run' => \$_dry_run
+    );
     my $sub_command = shift @args || '';
     if( !$result || !$sub_command || $sub_command ne 'generate' ) {
         pod2usage({-input => __FILE__, -verbose => 2, -output => \*STDERR});
