@@ -2,6 +2,10 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.08 2014-06-16T01:21:28Z
+
+    - validate command options
+
 0.07 2014-06-11T11:20:22Z
 
     - enable --port option
