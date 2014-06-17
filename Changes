@@ -2,6 +2,10 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.09 2014-06-17T02:52:07Z
+
+    - support using old GetOpt::Long
+
 0.08 2014-06-16T01:21:28Z
 
     - validate command options

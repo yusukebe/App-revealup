@@ -10,12 +10,8 @@ our @EXPORT = qw/path_to_res share_path parse_options/;
 
 sub parse_options {
     my ($args, @options) = @_;
-    my $p = Getopt::Long::Parser->new(
-        config => [ "no_ignore_case", "no_auto_abbrev" ],
-    );
-    my $result = $p->getoptionsfromarray(
-        $args, @options
-    );
+    Getopt::Long::Configure("no_ignore_case", "no_auto_abbrev");
+    my $result = Getopt::Long::GetOptionsFromArray($args, @options);
     return $result;
 }
 
