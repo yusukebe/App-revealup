@@ -20,6 +20,7 @@ sub run {
 
     if($command) {
         my $klass = sprintf("App::revealup::cli::%s", lc($command));
+        $klass = 'server' if $klass eq 'serve';
         no warnings 'ambiguous';
         if(eval "require $klass;1;"){
             $klass->run(@commands);

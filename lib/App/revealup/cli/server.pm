@@ -1,4 +1,4 @@
-package App::revealup::cli::serve;
+package App::revealup::cli::server;
 use strict;
 use warnings;
 use Getopt::Long qw/GetOptionsFromArray/;
@@ -104,12 +104,12 @@ __END__
 
 =head1 SYNOPSIS
 
-    $ revealup serve -p 5000 markdown.md
+    $ revealup server -p 5000 markdown.md
 
 =head1 DESCRIPTION
 
-I<serve> command makes your markdown texts as a HTTP Web application for slide show.
-Run C<revealup serve> the with markdown filename and options.
+I<server> command makes your markdown texts as a HTTP Web application for slide show.
+Run C<revealup server> the with markdown filename and options.
 And with your browser access such url I<http://localhost:5000/>.
 
 =head1 Options

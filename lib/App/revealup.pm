@@ -16,7 +16,7 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 =head1 SYNOPSIS
 
-    $ revealup serve slide.md --port 5000
+    $ revealup server slide.md --port 5000
 
 =head1 DESCRIPTION
 
@@ -42,9 +42,9 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
 
 =over 4
 
-=item serve
+=item L<App::revealup::cli::server>
 
-=item theme
+=item L<App::revealup::cli::theme>
 
 =back
 
