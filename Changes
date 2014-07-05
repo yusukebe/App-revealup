@@ -2,6 +2,10 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.10 2014-07-05T21:46:51Z
+
+    - use 'server' command instead of 'serve'
+
 0.09 2014-06-17T02:52:07Z
 
     - support using old GetOpt::Long
