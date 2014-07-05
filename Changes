@@ -2,6 +2,10 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.11 2014-07-05T21:53:38Z
+
+    - fixed bug about a required module
+
 0.10 2014-07-05T21:46:51Z
 
     - use 'server' command instead of 'serve'
