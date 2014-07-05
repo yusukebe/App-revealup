@@ -2,7 +2,7 @@ package App::revealup::cli;
 use strict;
 use warnings;
 use Try::Tiny;
-use App::revealup::cli::serve;
+use App::revealup::cli::server;
 
 sub new {
     my $class = shift;
