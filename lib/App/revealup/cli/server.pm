@@ -130,11 +130,11 @@ Trasition effects for slides.
 
     default / cube / page / concave / zoom / linear / fade / none
 
-=head2 width
+=head2 --width
 
 Width of a slide's size. Default is 960.
 
-=head2 height
+=head2 --height
 
 Height of a slide's size. Default is 700.
 
