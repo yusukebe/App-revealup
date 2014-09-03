@@ -2,6 +2,8 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.12 2014-09-03T20:55:45Z
+
     - write description about attributes in Markdown
     - add tcp server tests
 
