@@ -33,6 +33,16 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
 
     ## This is a third title
 
+    ---
+
+    ## This is a forth title
+    <!-- .slide: data-background="#f70000" data-transition="page" -->
+    
+
+    You can add slide attributes like above.
+
+
+
 # COMMANDS
 
 - [App::revealup::cli::server](http://search.cpan.org/perldoc?App::revealup::cli::server)

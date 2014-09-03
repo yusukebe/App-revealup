@@ -55,7 +55,11 @@
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.98"
+            "Capture::Tiny" : "0",
+            "FindBin" : "0",
+            "LWP::UserAgent" : "0",
+            "Test::More" : "0.98",
+            "Test::TCP" : "0"
          }
       }
    },
