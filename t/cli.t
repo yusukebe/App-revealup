@@ -1,7 +1,7 @@
 use strict;
 use Test::More;
 use Test::TCP;
-use Capture::Tiny qw/capture/;
+use Capture::Tiny qw/capture_merged/;
 use LWP::UserAgent;
 use FindBin;
 use App::revealup::cli;
@@ -10,13 +10,13 @@ my $cli = App::revealup::cli->new();
 ok $cli;
 
 subtest 'no arguments' => sub {
-    my ($stdout, $stderr, $exit) = capture { $cli->run('') };
-    ok $stdout;
+    my ($merged, @result) = capture_merged { $cli->run() };
+    ok $merged;
 };
 
 subtest 'command not found' => sub {
-    my ($stdout, $stderr, $exit) = capture { $cli->run('command_not_found') };
-    ok $stdout;
+    my ($merged, @result) = capture_merged { $cli->run('command_not_found') };
+    ok $merged;
 };
 
 test_tcp(
