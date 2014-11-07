@@ -4,6 +4,8 @@
 /Build.bat
 /blib
 
+.DS_Store
+
 /carton.lock
 /.carton/
 /local/

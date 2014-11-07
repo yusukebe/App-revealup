@@ -6,6 +6,7 @@ requires 'File::ShareDir';
 requires 'Path::Tiny';
 requires 'Text::MicroTemplate';
 requires 'Plack';
+requires 'MIME::Types';
 
 on 'test' => sub {
     requires 'Test::More', '0.98';

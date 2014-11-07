@@ -5,6 +5,7 @@ use base qw/Exporter/;
 use File::ShareDir qw/dist_dir/;
 use Path::Tiny qw/path/;
 use Getopt::Long qw//;
+use MIME::Types qw//;
 
 our @EXPORT = qw/path_to_res share_path parse_options/;
 
@@ -19,8 +20,11 @@ sub path_to_res {
     my $path = shift;
     if( $path && $path->exists ) {
         my $c = $path->slurp();
-        
-        return [200, [ 'Content-Length' => length $c ], [$c]];
+        my $meta = ['Content-Length' => length $c ];
+        if( my $mime = MIME::Types->new->mimeTypeOf($path->basename) ){
+            push @$meta, ('Content-Type' => $mime->type );
+        }
+        return [200, $meta , [$c]];
     }
     return [404, [], ['not found.']];
 }
