@@ -23,7 +23,6 @@ test_tcp(
     server => sub {
         my $port = shift;
         $cli->run('server', "$FindBin::Bin/test.md", '--port', $port);
-        exit;
     },
     client => sub {
         my $port = shift;
@@ -31,7 +30,7 @@ test_tcp(
         my $res = $ua->get("http://localhost:$port");
         is $res->code, 200;
         is $res->content_type, 'text/html';
-    }
+    },
 );
 
 done_testing();

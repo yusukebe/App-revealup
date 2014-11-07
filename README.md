@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/yusukebe/App-revealup.png?branch=master)](https://travis-ci.org/yusukebe/App-revealup)
+[![Build Status](https://travis-ci.org/yusukebe/App-revealup.svg?branch=master)](https://travis-ci.org/yusukebe/App-revealup)
 # NAME
 
 App::revealup - HTTP Server app for viewing Markdown texts as slides
@@ -15,22 +15,16 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
 
     ## This is Title
     
-
     Description... The horizontal slide separator characters are '---'
     
-
     ---
     
-
     ## This is second title
     
-
     The vertical slide separator characters are '___'
     
-
     ___
     
-
     ## This is a third title
 
     ---
@@ -38,15 +32,12 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
     ## This is a forth title
     <!-- .slide: data-background="#f70000" data-transition="page" -->
     
-
     You can add slide attributes like above.
-
-
 
 # COMMANDS
 
-- [App::revealup::cli::server](http://search.cpan.org/perldoc?App::revealup::cli::server)
-- [App::revealup::cli::theme](http://search.cpan.org/perldoc?App::revealup::cli::theme)
+- [App::revealup::cli::server](https://metacpan.org/pod/App::revealup::cli::server)
+- [App::revealup::cli::theme](https://metacpan.org/pod/App::revealup::cli::theme)
 
 # LICENSE
 

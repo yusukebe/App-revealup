@@ -19,6 +19,7 @@ sub path_to_res {
     my $path = shift;
     if( $path && $path->exists ) {
         my $c = $path->slurp();
+        
         return [200, [ 'Content-Length' => length $c ], [$c]];
     }
     return [404, [], ['not found.']];

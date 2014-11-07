@@ -4,7 +4,7 @@
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v1.1.0, CPAN::Meta::Converter version 2.132830",
+   "generated_by" : "Minilla/v2.2.0, CPAN::Meta::Converter version 2.142690",
    "license" : [
       "perl_5"
    ],
@@ -28,8 +28,6 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "CPAN::Meta" : "0",
-            "CPAN::Meta::Prereqs" : "0",
             "Module::Build" : "0.38"
          }
       },
@@ -49,7 +47,7 @@
             "Path::Tiny" : "0",
             "Plack" : "0",
             "Text::MicroTemplate" : "0",
-            "Try::Tiny" : "0",
+            "Try::Tiny" : "0.060",
             "perl" : "5.008005"
          }
       },
@@ -59,7 +57,7 @@
             "FindBin" : "0",
             "LWP::UserAgent" : "0",
             "Test::More" : "0.98",
-            "Test::TCP" : "0"
+            "Test::TCP" : "2.06"
          }
       }
    },
