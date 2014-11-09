@@ -45,6 +45,8 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
     
     You can add slide attributes like above.
 
+    Note:
+    This is a speaker note. It can be viewed in the speaker mode, just press S during the presentation to view notes and other useful information.
 
 =head1 COMMANDS
 
