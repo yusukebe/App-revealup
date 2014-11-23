@@ -1,6 +1,7 @@
 package App::revealup::cli::server;
 use strict;
 use warnings;
+use App::revealup::base;
 use Getopt::Long qw/GetOptionsFromArray/;
 use File::ShareDir qw/dist_dir/;
 use Path::Tiny qw/path/;
@@ -9,25 +10,37 @@ use Plack::Runner;
 use Pod::Usage;
 use App::revealup::util;
 
-my $_plack_port = 5000;
-my $_dry_run = 0;
-my $_theme;
-my $_theme_path = '';
-my $_transition = 'default';
-my $_size = { width => 960, height => 700 };
+has 'plack_port', 5000;
+has 'dry_run', 0;
+has 'theme', '';
+has 'theme_path', '';
+has 'transition', 'default';
+has 'size', { width => 960, height => 700 };
+
+# my $_plack_port = 5000;
+# my $_dry_run = 0;
+# my $_theme;
+# my $_theme_path = '';
+# my $_transition = 'default';
+# my $_size = { width => 960, height => 700 };
 
 sub run {
     my ($self, @args) = @_;
+    my $opt;
     parse_options(
         \@args,
-        'p|port=s' => \$_plack_port,
-        'theme=s' => \$_theme,
-        'transition=s' => \$_transition,
-        'width=i' => \$_size->{width},
-        'height=i' => \$_size->{height},
-        '_dry-run' => \$_dry_run
+        'p|port=s' => \$opt->{plack_port},
+        'theme=s' => \$opt->{theme},
+        'transition=s' => \$opt->{transition},
+        'width=i' => \$opt->{size}{width},
+        'height=i' => \$opt->{size}{height},
+        '_dry-run' => \$opt->{dry_run},
     );
 
+
+    use YAML;
+    warn Dump $opt;
+    
     my $filename = shift @args;
     if( !$filename || !path($filename)->exists ) {
         pod2usage( { -input => __FILE__, -verbose => 2, -output => \*STDERR } );
