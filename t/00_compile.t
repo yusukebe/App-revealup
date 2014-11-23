@@ -3,6 +3,7 @@ use Test::More;
 
 use_ok $_ for qw(
     App::revealup
+    App::revealup::base
     App::revealup::cli
     App::revealup::cli::server
     App::revealup::cli::theme
