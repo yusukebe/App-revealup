@@ -1,12 +1,5 @@
 package App::revealup::cli;
-use strict;
-use warnings;
-
-sub new {
-    my $class = shift;
-    my $self = bless {}, $class;
-    return $self;
-}
+use App::revealup::base;
 
 sub run {
     my ($self, @args) = @_;

@@ -1,6 +1,4 @@
 package App::revealup::cli::server;
-use strict;
-use warnings;
 use App::revealup::base;
 use Getopt::Long qw/GetOptionsFromArray/;
 use File::ShareDir qw/dist_dir/;

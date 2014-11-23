@@ -1,24 +1,29 @@
 package App::revealup::cli::theme;
-use strict;
-use warnings;
+use App::revealup::base;
 use Getopt::Long qw/GetOptionsFromArray/;
 use File::ShareDir qw/dist_dir/;
 use Path::Tiny qw/path/;
 use Pod::Usage;
 use App::revealup::util;
 
-my $_dry_run = 0;
-my $_base = 'default';
-my $_output = 'original.css';
+has 'dry_run' => 0;
+has 'base' => 'default';
+has 'output' => 'original.css';
 
 sub run {
     my ($self, @args) = @_;
+    my $opt;
     my $result = parse_options(
         \@args,
-        'base=s'   => \$_base,
-        'output=s' => \$_output,
-        '_dry-run' => \$_dry_run
+        'base=s'   => \$opt->{base},
+        'output=s' => \$opt->{output},
+        '_dry-run' => \$opt->{dry_run}
     );
+
+    for my $key (keys %$opt) {
+        $self->$key( $opt->{$key} );
+    }
+
     my $sub_command = shift @args || '';
     if( !$result || !$sub_command || $sub_command ne 'generate' ) {
         pod2usage({-input => __FILE__, -verbose => 2, -output => \*STDERR});
@@ -29,12 +34,12 @@ sub run {
 sub generate {
     my ($self, @args) = @_;
 
-    my $filepath = path('.', $_output);
+    my $filepath = path('.', $self->output);
     if ($filepath->exists) {
         die "[Warning] $filepath exists.\n";
     }
 
-    my $base = $_base !~ m!\.css$! ? $_base . '.css' : $_base;
+    my $base = $self->base !~ m!\.css$! ? $self->base . '.css' : $self->base;
     my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs css theme/]);
     my $base_path = $reveal_theme_path->child($base);
 
