@@ -7,6 +7,7 @@ use Text::MicroTemplate qw/render_mt/;
 use Plack::Runner;
 use Pod::Usage;
 use App::revealup::util;
+use App::revealup::builder;
 
 has 'plack_port' => 5000;
 has 'dry_run' => 0;
@@ -37,12 +38,21 @@ sub run {
     if( !$filename || !path($filename)->exists ) {
         pod2usage( { -input => __FILE__, -verbose => 2, -output => \*STDERR } );
     }
-
     if($self->theme) {
         $self->theme( $self->theme .= '.css' ) if $self->theme !~ m!.+\.css$!;
         $self->theme_path(path('.', $self->theme));
     }
-    my $html = $self->render($filename);
+
+    my $builder = App::revealup::builder->new(
+        filename => $filename || '',
+        theme => $self->theme || '',
+        theme_path => $self->theme_path || '',
+        transition => $self->transition || '',
+        width => $self->width || 0,
+        height => $self->width || 0,
+    );
+    
+    my $html = $builder->build_html();
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
     $runner->parse_options("--no-default-middleware");
