@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use Try::Tiny;
 use App::revealup::cli::server;
+use App::revealup::cli::export;
 
 sub new {
     my $class = shift;
