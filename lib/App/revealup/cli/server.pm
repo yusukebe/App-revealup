@@ -3,7 +3,6 @@ use App::revealup::base;
 use Getopt::Long qw/GetOptionsFromArray/;
 use File::ShareDir qw/dist_dir/;
 use Path::Tiny qw/path/;
-use Text::MicroTemplate qw/render_mt/;
 use Plack::Runner;
 use Pod::Usage;
 use App::revealup::util;
@@ -11,11 +10,11 @@ use App::revealup::builder;
 
 has 'plack_port' => 5000;
 has 'dry_run' => 0;
-has 'theme' => '';
-has 'theme_path' => '';
-has 'transition' => 'default';
-has 'width' => 960;
-has 'height' => 700;
+has 'theme';
+has 'transition';
+has 'width';
+has 'height';
+has 'theme_path';
 
 sub run {
     my ($self, @args) = @_;
@@ -49,7 +48,7 @@ sub run {
         theme_path => $self->theme_path || '',
         transition => $self->transition || '',
         width => $self->width || 0,
-        height => $self->width || 0,
+        height => $self->height || 0,
     );
     
     my $html = $builder->build_html();
@@ -58,21 +57,6 @@ sub run {
     $runner->parse_options("--no-default-middleware");
     $runner->set_options(port => $self->plack_port);
     $runner->run($app) if !$self->dry_run
-}
-
-sub render {
-    my ($self, $filename) = @_;
-    my $template_dir = App::revealup::util::share_path([qw/share templates/]);
-    my $template = $template_dir->child('slide.html.mt');
-    my $content = $template->slurp_utf8();
-    my $html = render_mt(
-        $content,
-        $filename,
-        $self->theme_path,
-        $self->transition,
-        { width => $self->width, height => $self->height },
-    )->as_string();
-    return $html;
 }
 
 sub app {
