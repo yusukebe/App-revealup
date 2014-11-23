@@ -10,19 +10,13 @@ use Plack::Runner;
 use Pod::Usage;
 use App::revealup::util;
 
-has 'plack_port', 5000;
-has 'dry_run', 0;
-has 'theme', '';
-has 'theme_path', '';
-has 'transition', 'default';
-has 'size', { width => 960, height => 700 };
-
-# my $_plack_port = 5000;
-# my $_dry_run = 0;
-# my $_theme;
-# my $_theme_path = '';
-# my $_transition = 'default';
-# my $_size = { width => 960, height => 700 };
+has 'plack_port' => 5000;
+has 'dry_run' => 0;
+has 'theme' => '';
+has 'theme_path' => '';
+has 'transition' => 'default';
+has 'width' => 960;
+has 'height' => 700;
 
 sub run {
     my ($self, @args) = @_;
@@ -32,30 +26,30 @@ sub run {
         'p|port=s' => \$opt->{plack_port},
         'theme=s' => \$opt->{theme},
         'transition=s' => \$opt->{transition},
-        'width=i' => \$opt->{size}{width},
-        'height=i' => \$opt->{size}{height},
+        'width=i' => \$opt->{width},
+        'height=i' => \$opt->{height},
         '_dry-run' => \$opt->{dry_run},
     );
 
-
-    use YAML;
-    warn Dump $opt;
+    for my $key (keys %$opt) {
+        $self->$key( $opt->{$key} );
+    }
     
     my $filename = shift @args;
     if( !$filename || !path($filename)->exists ) {
         pod2usage( { -input => __FILE__, -verbose => 2, -output => \*STDERR } );
     }
 
-    if($_theme) {
-        $_theme .= '.css' if $_theme !~ m!.+\.css$!;
-        $_theme_path = path('.', $_theme);
+    if($self->theme) {
+        $self->theme( $self->theme .= '.css' ) if $self->theme !~ m!.+\.css$!;
+        $self->theme_path(path('.', $self->theme));
     }
     my $html = $self->render($filename);
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
     $runner->parse_options("--no-default-middleware");
-    $runner->set_options(port => $_plack_port);
-    $runner->run($app) if !$_dry_run;
+    $runner->set_options(port => $self->plack_port);
+    $runner->run($app) if !$self->dry_run
 }
 
 sub render {
@@ -66,9 +60,10 @@ sub render {
     my $html = render_mt(
         $content,
         $filename,
-        $_theme_path,
-        $_transition,
-        $_size )->as_string();
+        $self->theme_path,
+        $self->transition,
+        { width => $self->width, height => $self->height },
+    )->as_string();
     return $html;
 }
 
@@ -86,12 +81,12 @@ sub app {
 
         my $path;
         # theme
-        if($_theme_path && $env->{PATH_INFO} =~ m!$_theme_path$!){
-            if($_theme_path->exists) {
-                $path = path('.', $_theme_path);
+        if($self->theme_path && $env->{PATH_INFO} =~ m!${self->theme_path}$!){
+            if($self->theme_path->exists) {
+                $path = path('.', $self->theme_path);
             }else{
                 my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs css theme/]);
-                $path = $reveal_theme_path->child($_theme_path->basename);
+                $path = $reveal_theme_path->child($self->theme_path->basename);
             }
             return App::revealup::util::path_to_res($path) if $path->exists;
         }

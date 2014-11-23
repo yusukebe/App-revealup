@@ -12,7 +12,12 @@ sub import {
     *{"${caller}::has"} = sub {
         my ($k, $v) = @_;
         *{"${caller}::$k"} = sub {
-            return $v
+            my ($self, $value) = @_;
+            if(!$value) {
+                $self->{"$k"} = $v if !$self->{"$k"};
+                return $self->{"$k"};
+            }
+            $self->{"$k"} = $value if $value;
         };
     };
     strict->import;
