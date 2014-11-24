@@ -49,7 +49,7 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 - `export`
 
-        $ revealup generate theme --base beige.css --output style.css
+        $ revealup export theme --base beige.css --output style.css
 
     `export` command generate the file such as a CSS for theme and a HTML for the slides.
 
