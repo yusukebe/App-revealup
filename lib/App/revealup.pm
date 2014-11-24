@@ -62,7 +62,7 @@ SEE MORE: L<App::revealup::cli::serve>
 
 =item C<export>
 
-    $ revealup generate theme --base beige.css --output style.css
+    $ revealup export theme --base beige.css --output style.css
 
 C<export> command generate the file such as a CSS for theme and a HTML for the slides.
 
