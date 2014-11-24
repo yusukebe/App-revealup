@@ -31,6 +31,7 @@
                  data-charset="utf-8"
                  data-notes="^Note:">
         </section>
+      </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>

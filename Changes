@@ -5,6 +5,7 @@ Revision history for Perl extension App-revealup
     - make new sub commands!
     - export command is enable to generate HTML file
     - thank you for pull-request @htk291
+    - fixed HTML template tags
 
 0.14 2014-11-07T16:32:35Z
 
