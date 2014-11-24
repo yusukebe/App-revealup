@@ -58,7 +58,7 @@ B<App::revealup> is package of web application modules and a command to showing 
 
 C<serve> command launch the HTTP server for the showing slides on your web browser.
 
-L<App::revealup::cli::serve>
+SEE MORE: L<App::revealup::cli::serve>
 
 =item C<export>
 
@@ -66,7 +66,7 @@ L<App::revealup::cli::serve>
 
 C<export> command generate the file such as a CSS for theme and a HTML for the slides.
 
-L<App::revealup::cli::export>
+SEE MORE: L<App::revealup::cli::export>
 
 =back
 

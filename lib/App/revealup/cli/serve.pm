@@ -43,7 +43,8 @@ sub run {
     );
     my $html = $builder->build_html();
     if( !$html ) {
-        pod2usage( { -input => __FILE__, -verbose => 2, -output => \*STDERR } );
+        system "perldoc App::revealup::cli::serve";
+        exit;
     }
 
     my $app = $self->app($html);
@@ -108,27 +109,27 @@ And with your browser access such url I<http://localhost:5000/>.
 
 =head2 Options
 
-=head3 C<<-p>> or C<<--port>>
+=head3 C<-p> or C<--port>
 
 HTTP port number
 
-=head3 C<<--theme>>
+=head3 C<--theme>
 
 CSS filename or original CSS file path. The reveal.js default CSS filenames are below.
 
     beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
 
-=head3 C<<--transition>>
+=head3 C<--transition>
 
 Trasition effects for slides.
 
     default / cube / page / concave / zoom / linear / fade / none
 
-=head3 C<<--width>>
+=head3 C<--width>
 
 Width of a slide's size. Default is 960.
 
-=head3 C<<--height>>
+=head3 C<--height>
 
 Height of a slide's size. Default is 700.
 

@@ -1,10 +1,12 @@
 package App::revealup::cli::export;
 use App::revealup::base;
+use Pod::Usage;
 
 has 'sub_commands' => [qw/html theme/];
 
 sub run {
     my ($self, $sub_command, @args) = @_;
+    usage() if !$sub_command;
     if ($sub_command eq 'generate'){
         $sub_command = 'theme';
     }
@@ -13,8 +15,15 @@ sub run {
         if(eval "require $klass;1;"){
             my $instance = $klass->new();
             $instance->run(@args);
+            return;
         }
     }
+    usage();
+}
+
+sub usage {
+    system "perldoc App::revealup::cli::export";
+    exit;
 }
 
 1;
@@ -28,50 +37,47 @@ __END__
 
 =head1 DESCRIPTION
 
-C<export> command with sub-command makes file of CSS theme or generated HTML.
+C<export> command with a sub-command makes file of CSS theme or generated HTML.
 
-=head1 SUB COMMANDS
+=head1 SUB COMMAND: C<theme>
 
-=head2 C<theme>
+    $ revealup export theme --base blood.css --output theme.css
 
 =head2 Options
 
-=head3 C<<--base>>
+=head3 C<--base>
 
-The base CSS file name that is included in reveal.js package.
-Available base theme CSS names are below.
+The base CSS file name that is included in reveal.js package. Available base theme CSS names are below.
 
     beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
 
-=head3 C<<--output>>
+=head3 C<--output>
 
 Output CSS file name. I<original.css> is default.
 
-=head2 C<html>
+=head1 SUB COMMAND: C<html>
+
+    $ revealup export html --theme ./origina.css --output slides.html
 
 =head2 Options
 
-=head3 C<<--theme>>
+=head3 C<--theme>
 
-CSS filename or original CSS file path. The reveal.js default CSS filenames are below.
+CSS filename or original CSS file path. Your can use the reveal.js default CSS filenames.
 
-    beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
+=head3 C<--transition>
 
-=head3 C<<--transition>>
+Trasition effects for slides. C<default, cube, page, concave, zoom, linear, fade, none> are available;
 
-Trasition effects for slides.
-
-    default / cube / page / concave / zoom / linear / fade / none
-
-=head3 C<<--width>>
+=head3 C<--width>
 
 Width of a slide's size. Default is 960.
 
-=head3 C<<--height>>
+=head3 C<--height>
 
 Height of a slide's size. Default is 700.
 
-=head3 C<<--output>>
+=head3 C<--output>
 
 Output HTML file name. I<original.html> is default.
 

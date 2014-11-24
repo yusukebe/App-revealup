@@ -36,7 +36,7 @@ sub run {
     
     my $html = $builder->build_html();
     if(!$html) {
-        #XXX
+        pod2usage( { -input => 'App::revealup::cli::export', -verbose => 2, -output => \*STDERR } );
     }
     print "Generate your HTML to @{[$self->output()]}.\n";
     path($self->output)->spew_utf8($html);

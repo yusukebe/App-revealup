@@ -45,7 +45,7 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
     `serve` command launch the HTTP server for the showing slides on your web browser.
 
-    [App::revealup::cli::serve](https://metacpan.org/pod/App::revealup::cli::serve)
+    SEE MORE: [App::revealup::cli::serve](https://metacpan.org/pod/App::revealup::cli::serve)
 
 - `export`
 
@@ -53,7 +53,7 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
     `export` command generate the file such as a CSS for theme and a HTML for the slides.
 
-    [App::revealup::cli::export](https://metacpan.org/pod/App::revealup::cli::export)
+    SEE MORE: [App::revealup::cli::export](https://metacpan.org/pod/App::revealup::cli::export)
 
 # LICENSE
 
