@@ -30,8 +30,12 @@ sub run {
     if (path($self->output)->exists) {
         App::revealup::util::error("@{[$self->output]} exists");
     }
-    
+
     my $filename = shift @args;
+    if (!path($filename)->exists) {
+        App::revealup::util::error("$filename is not exist");
+    }
+    
     my $builder = App::revealup::builder->new(
         filename => $filename || '',
         theme => $self->theme || '',
