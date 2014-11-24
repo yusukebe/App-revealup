@@ -19,17 +19,16 @@ sub import {
 
 sub attr {
     my ( $caller, $k, $v ) = @_;
-    if ( !$caller->can($k) ) {
-        no strict 'refs';
-        *{"${caller}::$k"} = sub {
-            my ( $self, $value ) = @_;
-            if ( !$value ) {
-                $self->{"$k"} = $v if !$self->{"$k"};
-                return $self->{"$k"};
-            }
-            $self->{"$k"} = $value if $value;
-        };
-    }
+    no strict 'refs';
+    no warnings 'redefine';
+    *{"${caller}::$k"} = sub {
+        my ( $self, $value ) = @_;
+        if ( !$value ) {
+            $self->{"$k"} = $v if !$self->{"$k"};
+            return $self->{"$k"};
+        }
+        $self->{"$k"} = $value if $value;
+    };
 }
 
 1;

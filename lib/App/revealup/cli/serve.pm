@@ -1,4 +1,4 @@
-package App::revealup::cli::server;
+package App::revealup::cli::serve;
 use App::revealup::base;
 use Getopt::Long qw/GetOptionsFromArray/;
 use File::ShareDir qw/dist_dir/;
@@ -34,24 +34,18 @@ sub run {
     }
     
     my $filename = shift @args;
-    if( !$filename || !path($filename)->exists ) {
-        pod2usage( { -input => __FILE__, -verbose => 2, -output => \*STDERR } );
-    }
-    if($self->theme) {
-        $self->theme( $self->theme .= '.css' ) if $self->theme !~ m!.+\.css$!;
-        $self->theme_path(path('.', $self->theme));
-    }
-
     my $builder = App::revealup::builder->new(
         filename => $filename || '',
         theme => $self->theme || '',
-        theme_path => $self->theme_path || '',
         transition => $self->transition || '',
         width => $self->width || 0,
         height => $self->height || 0,
     );
-    
     my $html = $builder->build_html();
+    if( !$html ) {
+        pod2usage( { -input => __FILE__, -verbose => 2, -output => \*STDERR } );
+    }
+
     my $app = $self->app($html);
     my $runner = Plack::Runner->new();
     $runner->parse_options("--no-default-middleware");
@@ -104,37 +98,37 @@ __END__
 
 =head1 SYNOPSIS
 
-    $ revealup server -p 5000 markdown.md
+    $ revealup serve -p 5000 markdown.md
 
 =head1 DESCRIPTION
 
-I<server> command makes your markdown texts as a HTTP Web application for slide show.
-Run C<revealup server> the with markdown filename and options.
+C<serve> command makes your markdown texts as a HTTP Web application for slide show.
+Run C<revealup serve> the with markdown filename and options.
 And with your browser access such url I<http://localhost:5000/>.
 
-=head1 Options
+=head2 Options
 
-=head2 -p or --port
+=head3 C<<-p>> or C<<--port>>
 
 HTTP port number
 
-=head2 --theme
+=head3 C<<--theme>>
 
 CSS filename or original CSS file path. The reveal.js default CSS filenames are below.
 
     beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
 
-=head2 --transition
+=head3 C<<--transition>>
 
 Trasition effects for slides.
 
     default / cube / page / concave / zoom / linear / fade / none
 
-=head2 --width
+=head3 C<<--width>>
 
 Width of a slide's size. Default is 960.
 
-=head2 --height
+=head3 C<<--height>>
 
 Height of a slide's size. Default is 700.
 

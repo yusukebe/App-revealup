@@ -4,15 +4,17 @@ use App::revealup::util;
 use Path::Tiny qw/path/;
 use Text::MicroTemplate qw/render_mt/;
 
-has 'theme' => '';
-has 'theme_path' => '';
+has 'theme';
+has 'theme_path';
 has 'transition' => 'default';
 has 'width' => 960;
 has 'height' => 700;
 
 sub build_html {
     my $self = shift;
-    return if !$self->filename || !path($self->filename)->exists;
+    if ( !$self->filename || !path($self->filename)->exists ){
+        return;
+    }
     if($self->theme) {
         $self->theme( $self->theme .= '.css' ) if $self->theme !~ m!.+\.css$!;
         $self->theme_path(path('.', $self->theme));

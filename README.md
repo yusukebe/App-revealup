@@ -5,11 +5,11 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 # SYNOPSIS
 
-    $ revealup server slide.md --port 5000
+    $ revealup serve slide.md --port 5000
 
 # DESCRIPTION
 
-App::revealup is a web application module to showing Markdown with reveal.js. Markdown texts will be like a slide show if you use this revealup command.
+**App::revealup** is package of web application modules and a command to showing Markdown with **reveal.js**. Markdown texts will be like slide shows if you use this `revealup` command.
 
 ## Sample Markdown
 
@@ -39,8 +39,21 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
 
 # COMMANDS
 
-- [App::revealup::cli::server](https://metacpan.org/pod/App::revealup::cli::server)
-- [App::revealup::cli::theme](https://metacpan.org/pod/App::revealup::cli::theme)
+- `serve`
+
+        $ revealup serve markdown.md --theme night.css
+
+    `serve` command launch the HTTP server for the showing slides on your web browser.
+
+    [App::revealup::cli::serve](https://metacpan.org/pod/App::revealup::cli::serve)
+
+- `export`
+
+        $ revealup generate theme --base beige.css --output style.css
+
+    `export` command generate the file such as a CSS for theme and a HTML for the slides.
+
+    [App::revealup::cli::export](https://metacpan.org/pod/App::revealup::cli::export)
 
 # LICENSE
 

@@ -9,9 +9,9 @@ ok $test_dir;
 ok $test_dir->is_dir();
 
 my $builder = App::revealup::builder->new(
-    filename => $test_dir->child('test.md'),
+    filename => './t/test.md',
 );
-my $html = App::revealup::builder->build_html($test_dir->child('test.md'));
+my $html = App::revealup::builder->build_html();
 ok $html;
 
 my $png = App::revealup::util::path_to_res($test_dir->child('onion.png'));

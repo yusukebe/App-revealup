@@ -6,7 +6,9 @@ use_ok $_ for qw(
     App::revealup::base
     App::revealup::cli
     App::revealup::cli::server
-    App::revealup::cli::theme
+    App::revealup::cli::export
+    App::revealup::cli::export::html
+    App::revealup::cli::export::theme
 );
 
 done_testing();
