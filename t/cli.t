@@ -1,4 +1,4 @@
-use strict;
+]use strict;
 use Test::More;
 use Test::TCP;
 use Capture::Tiny qw/capture_merged/;
@@ -22,7 +22,7 @@ subtest 'command not found' => sub {
 test_tcp(
     server => sub {
         my $port = shift;
-        $cli->run('server', "$FindBin::Bin/test.md", '--port', $port);
+        $cli->run('serve', "$FindBin::Bin/test.md", '--port', $port);
     },
     client => sub {
         my $port = shift;
