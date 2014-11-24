@@ -38,7 +38,7 @@ __END__
 
 =head1 SYNOPSIS
 
-    $ revealup export html --output 'slides.html'
+    $ revealup export html --output slides.html
 
 =head1 DESCRIPTION
 
