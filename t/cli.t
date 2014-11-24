@@ -1,4 +1,4 @@
-]use strict;
+use strict;
 use Test::More;
 use Test::TCP;
 use Capture::Tiny qw/capture_merged/;
