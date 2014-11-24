@@ -9,7 +9,7 @@ sub import {
     *{"${caller}::new"} = sub {
         my ($klass, %opt) = @_;
         for my $key (keys %opt) {
-            attr($caller, $key, $opt{$key});
+            attr($caller, $key, $opt{$key}) if $opt{$key};
         }
         return bless \%opt, $klass;
     };

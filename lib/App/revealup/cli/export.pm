@@ -1,6 +1,7 @@
 package App::revealup::cli::export;
 use App::revealup::base;
 use Pod::Usage;
+use Try::Tiny;
 
 has 'sub_commands' => [qw/html theme/];
 
@@ -14,7 +15,11 @@ sub run {
         my $klass = sprintf("App::revealup::cli::export::%s", lc($sub_command));
         if(eval "require $klass;1;"){
             my $instance = $klass->new();
-            $instance->run(@args);
+            try {
+                $instance->run(@args);
+            }catch{
+                usage();
+            };
             return;
         }
     }
@@ -57,7 +62,7 @@ Output CSS file name. I<original.css> is default.
 
 =head1 SUB COMMAND: C<html>
 
-    $ revealup export html --theme ./origina.css --output slides.html
+    $ revealup export html slides.md --theme ./origina.css --output slides.html
 
 =head2 Options
 

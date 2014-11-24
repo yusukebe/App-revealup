@@ -3,6 +3,8 @@ use App::revealup::base;
 use App::revealup::util;
 use App::revealup::builder;
 use Path::Tiny qw/path/;
+use Term::ANSIColor;
+use Pod::Usage;
 
 has 'theme';
 has 'transition';
@@ -25,6 +27,10 @@ sub run {
         $self->$key( $opt->{$key} );
     }
 
+    if (path($self->output)->exists) {
+        App::revealup::util::error("@{[$self->output]} exists");
+    }
+    
     my $filename = shift @args;
     my $builder = App::revealup::builder->new(
         filename => $filename || '',
@@ -35,11 +41,12 @@ sub run {
     );
     
     my $html = $builder->build_html();
-    if(!$html) {
-        pod2usage( { -input => 'App::revealup::cli::export', -verbose => 2, -output => \*STDERR } );
-    }
-    print "Generate your HTML to @{[$self->output()]}.\n";
+    die if !$html;
     path($self->output)->spew_utf8($html);
+    App::revealup::util::info("Generated your HTML to @{[$self->output]}");
+    my $reveal_path = App::revealup::util::share_path([qw/share revealjs/]);
+    App::revealup::util::info("Copy command for the revealjs directory is:");
+    App::revealup::util::info("cp -r @{[$reveal_path->absolute]} ./revealjs");
 }
 
 1;

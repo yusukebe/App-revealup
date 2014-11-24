@@ -81,10 +81,10 @@ sub app {
         $path = path('.', $env->{PATH_INFO});
         return App::revealup::util::path_to_res($path) if $path->exists;
 
-        my $reveal_dir = App::revealup::util::share_path([qw/share revealjs/]);
+        my $reveal_dir = App::revealup::util::share_path([qw/share/]);
         $path = $reveal_dir->child($env->{PATH_INFO});
         return App::revealup::util::path_to_res($path) if $path->exists;
-        warn "[Warning] $path does not exist.\n";
+        App::revealup::util::warn("$path does not exist");
         return [
             404,
             ['Content-Type' => 'text/plain'],

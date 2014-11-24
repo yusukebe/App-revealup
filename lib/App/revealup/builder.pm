@@ -9,6 +9,7 @@ has 'theme_path';
 has 'transition' => 'default';
 has 'width' => 960;
 has 'height' => 700;
+has 'filename';
 
 sub build_html {
     my $self = shift;
@@ -16,8 +17,16 @@ sub build_html {
         return;
     }
     if($self->theme) {
-        $self->theme( $self->theme .= '.css' ) if $self->theme !~ m!.+\.css$!;
-        $self->theme_path(path('.', $self->theme));
+        if ($self->theme !~ m!.+\.css$!){
+            my $name = $self->theme() . '.css';
+            $self->theme( $name );
+        }
+        my $p = path('.', $self->theme);
+        if(!$p->exists) {
+            $p = path('revealjs','css','theme',$self->theme);
+            $self->theme_path($p);
+        }
+        $self->theme_path($p);
     }
     my $html = $self->render($self->filename);
     return $html;
