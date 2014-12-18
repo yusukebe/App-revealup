@@ -20,7 +20,7 @@ sub parse_options {
 sub path_to_res {
     my $path = shift;
     if( $path && $path->exists ) {
-        my $c = $path->slurp();
+        my $c = $path->slurp_raw();
         my $meta = ['Content-Length' => length $c ];
         if( my $mime = MIME::Types->new->mimeTypeOf($path->basename) ){
             push @$meta, ('Content-Type' => $mime->type );
