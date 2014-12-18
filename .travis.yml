@@ -6,3 +6,5 @@ perl:
   - 5.18
 before_install:
   - git submodule update --init --recursive
+  - cpanm Test::File::Contents
+
