@@ -21,6 +21,10 @@ my %args = (
         'Module::Build' => 0.38,
     },
 
+    test_requires => {
+        'Test::File::Contents' => '0.20',
+    },
+
     name            => 'App-revealup',
     module_name     => 'App::revealup',
     allow_pureperl => 0,
