@@ -12,7 +12,7 @@ __END__
 
 =head1 NAME
 
-App::revealup - HTTP Server app for viewing Markdown texts as slides
+App::revealup - HTTP Server application for viewing Markdown formatted text as slides
 
 =head1 SYNOPSIS
 
@@ -20,7 +20,7 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 =head1 DESCRIPTION
 
-B<App::revealup> is package of web application modules and a command to showing Markdown with B<reveal.js>. Markdown texts will be like slide shows if you use this C<revealup> command.
+B<App::revealup> is a package of web application modules and commands to showing Markdown formatted text with the JavaScript library B<"reveal.js">. Markdown text will be converted like slide shows if you use these C<revealup> commands.
 
 =head2 Sample Markdown
 
@@ -56,7 +56,7 @@ B<App::revealup> is package of web application modules and a command to showing 
 
     $ revealup serve markdown.md --theme night.css
 
-C<serve> command launch the HTTP server for the showing slides on your web browser.
+C<serve> command launch the HTTP server for showing slides on your web browser.
 
 SEE MORE: L<App::revealup::cli::serve>
 
@@ -64,7 +64,7 @@ SEE MORE: L<App::revealup::cli::serve>
 
     $ revealup export theme --base beige.css --output style.css
 
-C<export> command generate the file such as a CSS for theme and a HTML for the slides.
+C<export> command generate the files such as CSS of the theme and HTML for the slides.
 
 SEE MORE: L<App::revealup::cli::export>
 
@@ -77,9 +77,9 @@ Copyright (C) Yusuke Wada.
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-=head1 reveal.js
+=head2 reveal.js
 
-reveal.js is by Hakim El Hattab, L<http://hakim.se>.
+C<reveal.js> is by Hakim El Hattab, L<http://hakim.se>.
 
 L<https://github.com/hakimel/reveal.js/>
 

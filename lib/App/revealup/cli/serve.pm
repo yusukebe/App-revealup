@@ -103,19 +103,19 @@ __END__
 
 =head1 DESCRIPTION
 
-C<serve> command makes your markdown texts as a HTTP Web application for slide show.
-Run C<revealup serve> the with markdown filename and options.
-And with your browser access such url I<http://localhost:5000/>.
+C<serve> command makes your Markdown text as a HTTP Web application for the slide show.
+Run C<revealup serve> command with the Markdown formatted text file name and options, 
+then open by your web browser such a URL I<http://localhost:5000/>.
 
 =head2 Options
 
 =head3 C<-p> or C<--port>
 
-HTTP port number
+HTTP port number.
 
 =head3 C<--theme>
 
-CSS filename or original CSS file path. The reveal.js default CSS filenames are below.
+CSS file name or original CSS file path. C<reveal.js> default CSS filenames are below.
 
     beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
 

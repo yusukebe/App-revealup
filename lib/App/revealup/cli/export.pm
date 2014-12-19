@@ -52,7 +52,7 @@ C<export> command with a sub-command makes file of CSS theme or generated HTML.
 
 =head3 C<--base>
 
-The base CSS file name that is included in reveal.js package. Available base theme CSS names are below.
+The base CSS file name that is included in C<reveal.js> package. Available base theme CSS names are below.
 
     beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
 
@@ -68,11 +68,11 @@ Output CSS file name. I<original.css> is default.
 
 =head3 C<--theme>
 
-CSS filename or original CSS file path. Your can use the reveal.js default CSS filenames.
+CSS file name or original CSS file path. Your can use the C<reveal.js> default CSS file names.
 
 =head3 C<--transition>
 
-Trasition effects for slides. C<default, cube, page, concave, zoom, linear, fade, none> are available;
+Trasition effects for slides. C<default, cube, page, concave, zoom, linear, fade, none> are available.
 
 =head3 C<--width>
 
