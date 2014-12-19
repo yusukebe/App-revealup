@@ -20,14 +20,14 @@ sub import {
 sub attr {
     my ( $caller, $k, $v ) = @_;
     no strict 'refs';
-    no warnings 'redefine';
+    return if defined *{"${caller}::$k"};
     *{"${caller}::$k"} = sub {
         my ( $self, $value ) = @_;
         if ( !$value ) {
-            $self->{"$k"} = $v if !$self->{"$k"};
-            return $self->{"$k"};
+            $self->{$k} = $v if !$self->{$k};
+            return $self->{$k};
         }
-        $self->{"$k"} = $value if $value;
+        $self->{$k} = $value if $value;
     };
 }
 
