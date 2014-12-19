@@ -2,6 +2,9 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+    - improve implementation of base.pm
+    - fixed POD
+
 0.16 2014-12-19T06:24:04Z
 
     - fixed unwanted EOL conversion on Windows

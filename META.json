@@ -1,5 +1,5 @@
 {
-   "abstract" : "HTTP Server app for viewing Markdown texts as slides",
+   "abstract" : "HTTP Server application for viewing Markdown formatted text as slides",
    "author" : [
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
