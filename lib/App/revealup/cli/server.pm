@@ -126,7 +126,7 @@ CSS filename or original CSS file path. The reveal.js default CSS filenames are 
 
 =head2 --transition
 
-Trasition effects for slides.
+Transition effects for slides.
 
     default / cube / page / concave / zoom / linear / fade / none
 

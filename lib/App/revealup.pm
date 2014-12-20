@@ -20,11 +20,11 @@ App::revealup - HTTP Server app for viewing Markdown texts as slides
 
 =head1 DESCRIPTION
 
-App::revealup is a web application module to showing Markdown with reveal.js. Markdown texts will be like a slide show if you use this revealup command.
+App::revealup is a web application module for giving Markdown-driven presentations. The C<revealup> command starts a local web server to serve the your markdown presentation file with reveal.js. The presentation can be viewed in a web browser. The reveal.js library offers comprehensive presenting features such as slide transitions, speaker notes and more.
 
 =head2 Sample Markdown
 
-    ## This is Title
+    ## This is an H2 Title
     
     Description... The horizontal slide separator characters are '---'
     
@@ -55,6 +55,8 @@ App::revealup is a web application module to showing Markdown with reveal.js. Ma
 =item L<App::revealup::cli::server>
 
 =item L<App::revealup::cli::theme>
+
+=item L<App::revealup::cli::transition>
 
 =back
 
