@@ -37,7 +37,7 @@ test_tcp(
         # test.bmp contains 0x0d 0x0a (CRLF)
         $res = $ua->get("http://localhost:$port/test.bmp");
         is $res->code, 200;
-        is $res->content_type, 'image/x-bmp';
+        like $res->content_type, qr!^image/x-.*?bmp$!;
         is $res->content_length, 122;
 
         # diag sprintf("%*v02x\n", " ", $res->content);
