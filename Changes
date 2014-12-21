@@ -2,6 +2,8 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.18 2014-12-21T22:28:49Z
+
     - fixed POD
     - thank you for pull-request @sillymoose
 

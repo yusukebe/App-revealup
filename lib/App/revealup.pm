@@ -3,7 +3,7 @@ use 5.008005;
 use strict;
 use warnings;
 
-our $VERSION = "0.17";
+our $VERSION = "0.18";
 
 1;
 __END__
@@ -20,7 +20,7 @@ App::revealup - HTTP Server application for viewing Markdown formatted text as s
 
 =head1 DESCRIPTION
 
-B<App::revealup> is a web application module for giving Markdown-driven presentations. The C<revealup> command starts a local web server to serve the your markdown presentation file with reveal.js. The presentation can be viewed in a web browser. The B<reveal.js> library offers comprehensive presenting features such as slide transitions, speaker notes and more.
+B<App::revealup> is a web application module for giving Markdown-driven presentations. The C<revealup> command starts a local web server to serve the your markdown presentation file with B<reveal.js>. The presentation can be viewed in a web browser. The reveal.js library offers comprehensive presenting features such as slide transitions, speaker notes and more.
 
 =head2 Sample Markdown
 
