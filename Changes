@@ -2,6 +2,9 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+    - fixed POD
+    - thank you for pull-request @sillymoose
+
 0.17 2014-12-19T20:11:36Z
 
     - improve implementation of base.pm

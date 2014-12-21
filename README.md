@@ -9,11 +9,11 @@ App::revealup - HTTP Server application for viewing Markdown formatted text as s
 
 # DESCRIPTION
 
-**App::revealup** is a package of web application modules and commands to showing Markdown formatted text with the JavaScript library **"reveal.js"**. Markdown text will be converted like slide shows if you use these `revealup` commands.
+**App::revealup** is a web application module for giving Markdown-driven presentations. The `revealup` command starts a local web server to serve the your markdown presentation file with reveal.js. The presentation can be viewed in a web browser. The **reveal.js** library offers comprehensive presenting features such as slide transitions, speaker notes and more.
 
 ## Sample Markdown
 
-    ## This is Title
+    ## This is an H2 Title
     
     Description... The horizontal slide separator characters are '---'
     

@@ -4,7 +4,7 @@
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.3.0, CPAN::Meta::Converter version 2.142690",
+   "generated_by" : "Minilla/v2.2.1, CPAN::Meta::Converter version 2.141170",
    "license" : [
       "perl_5"
    ],
@@ -79,7 +79,7 @@
    "version" : "0.17",
    "x_authority" : "cpan:YUSUKEBE",
    "x_contributors" : [
-      "sillymoose <davidnmfarrell@gmail.com>",
-      "A. Sinan Unur <nanis@cpan.org>"
+      "A. Sinan Unur <nanis@cpan.org>",
+      "sillymoose <davidnmfarrell@gmail.com>"
    ]
 }
