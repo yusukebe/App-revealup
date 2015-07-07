@@ -6,7 +6,7 @@ use Path::Tiny;
 
 subtest 'basic' => sub {
     my $path = path('./t', 'output.css');
-    $path->remove();
+    $path->remove() if $path->exists;
     ok !$path->exists();
     my $cli = App::revealup::cli->new();
     $cli->run("export", "theme", "--output", $path);
@@ -16,7 +16,7 @@ subtest 'basic' => sub {
 
 subtest 'for compatibility' => sub {
     my $path = path('./t', 'output.css');
-    $path->remove();
+    $path->remove() if $path->exists;
     ok !$path->exists();
     my $cli = App::revealup::cli->new();
     $cli->run("theme", "generate", "--output", $path);

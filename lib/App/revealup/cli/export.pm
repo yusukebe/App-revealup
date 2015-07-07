@@ -2,6 +2,7 @@ package App::revealup::cli::export;
 use App::revealup::base;
 use Pod::Usage;
 use Try::Tiny;
+use Carp qw/croak/;
 
 has 'sub_commands' => [qw/html theme/];
 
@@ -18,7 +19,7 @@ sub run {
             try {
                 $instance->run(@args);
             }catch{
-                usage();
+                croak $_;
             };
             return;
         }

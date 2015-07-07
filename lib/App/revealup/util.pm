@@ -7,6 +7,7 @@ use Path::Tiny qw/path/;
 use Getopt::Long qw//;
 use MIME::Types qw//;
 use Term::ANSIColor;
+use Carp qw/croak/;
 
 our @EXPORT = qw/path_to_res share_path parse_options error warn info/;
 
@@ -47,7 +48,7 @@ sub error {
     print "Error";
     print color 'reset';
     print "] $message\n";
-    exit;
+    croak $message;
 }
 
 sub warn {

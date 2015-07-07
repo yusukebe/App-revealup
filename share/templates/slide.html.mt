@@ -6,11 +6,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="revealjs/css/reveal.min.css">
+    <link rel="stylesheet" href="revealjs/css/reveal.css">
 ? if($theme) {
     <link rel="stylesheet" href="<?= $theme ?>" id="theme">
 ? }else{
-    <link rel="stylesheet" href="revealjs/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="revealjs/css/theme/black.css" id="theme">
 ? }
     <link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -35,7 +35,7 @@
     </div>
 
     <script src="revealjs/lib/js/head.min.js"></script>
-    <script src="revealjs/js/reveal.min.js"></script>
+    <script src="revealjs/js/reveal.js"></script>
 
     <script>
       Reveal.initialize({

@@ -5,7 +5,7 @@ use Path::Tiny qw/path/;
 use Getopt::Long qw/GetOptionsFromArray/;
 use Term::ANSIColor;
 
-has 'base' => 'default';
+has 'base' => 'black';
 has 'output' => 'original.css';
 
 sub run {

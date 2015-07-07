@@ -2,9 +2,11 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+   - update the "revealjs" library
+
 0.19 2014-12-21T22:39:45Z
 
-   - fixed test about that .bmp file return the "image/x-ms-bmp" content-type.
+   - fixed test about that .bmp file return the "image/x-ms-bmp" content-type
 
 0.18 2014-12-21T22:28:49Z
 

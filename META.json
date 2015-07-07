@@ -4,7 +4,7 @@
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.2.1, CPAN::Meta::Converter version 2.141170",
+   "generated_by" : "Minilla/v2.4.1, CPAN::Meta::Converter version 2.142690",
    "license" : [
       "perl_5"
    ],
@@ -76,7 +76,7 @@
          "web" : "https://github.com/yusukebe/App-revealup"
       }
    },
-   "version" : "0.19",
+   "version" : "0.20",
    "x_authority" : "cpan:YUSUKEBE",
    "x_contributors" : [
       "A. Sinan Unur <nanis@cpan.org>",
