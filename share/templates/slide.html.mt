@@ -27,7 +27,7 @@
       <div class="slides">
         <section data-markdown="<?= $filename ?>"
                  data-separator="^---"
-                 data-vertical="^___"
+                 data-separator-vertical="^___"
                  data-charset="utf-8"
                  data-notes="^Note:">
         </section>
