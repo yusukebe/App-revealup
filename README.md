@@ -70,4 +70,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-Yusuke Wada <yusuke@kamawada.com>
+Yusuke Wada &lt;yusuke@kamawada.com>
