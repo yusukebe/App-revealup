@@ -11,6 +11,7 @@ use App::revealup::builder;
 has 'plack_port' => 5000;
 has 'dry_run' => 0;
 has 'theme';
+has 'template';
 has 'transition';
 has 'width';
 has 'height';
@@ -23,6 +24,7 @@ sub run {
         \@args,
         'p|port=s' => \$opt->{plack_port},
         'theme=s' => \$opt->{theme},
+        'template=s' => \$opt->{template},
         'transition=s' => \$opt->{transition},
         'width=i' => \$opt->{width},
         'height=i' => \$opt->{height},
@@ -37,6 +39,7 @@ sub run {
     my $builder = App::revealup::builder->new(
         filename => $filename || '',
         theme => $self->theme || '',
+        template => $self->template || '',
         transition => $self->transition || '',
         width => $self->width || 0,
         height => $self->height || 0,

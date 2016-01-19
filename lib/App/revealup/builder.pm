@@ -6,6 +6,7 @@ use Text::MicroTemplate qw/render_mt/;
 
 has 'theme';
 has 'theme_path';
+has 'template';
 has 'transition' => 'default';
 has 'width' => 960;
 has 'height' => 700;
@@ -34,8 +35,13 @@ sub build_html {
 
 sub render {
     my ($self, $filename) = @_;
-    my $template_dir = App::revealup::util::share_path([qw/share templates/]);
-    my $template = $template_dir->child('slide.html.mt');
+    my $template;
+    if (!$self->template){
+      my $template_dir = App::revealup::util::share_path([qw/share templates/]);
+      $template = $template_dir->child('slide.html.mt');
+    } else {
+      $template = path($self->template);
+    }
     my $content = $template->slurp_utf8();
     my $html = render_mt(
         $content,
