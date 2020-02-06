@@ -120,7 +120,7 @@ HTTP port number.
 
 CSS file name or original CSS file path. C<reveal.js> default CSS filenames are below.
 
-    beige.css / blood.css / default.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css
+    beige.css / black.css (default ) / blood.css / league.css / moon.css / night.css / serif.css / simple.css / sky.css / solarized.css / white.css
 
 =head3 C<--transition>
 
