@@ -1,4 +1,3 @@
 name = "App-revealup"
 badges = ["travis"]
 authority="cpan:YUSUKEBE"
-module_maker="ModuleBuild"

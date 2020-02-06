@@ -9,6 +9,8 @@ requires 'Text::MicroTemplate';
 requires 'Plack';
 requires 'MIME::Types';
 
+build_requires 'Module::Build::Tiny';
+
 on 'test' => sub {
     requires 'Test::File::Contents', '0.20';
     requires 'Test::More', '0.98';
