@@ -45,7 +45,7 @@ App::revealup - HTTP Server application for viewing Markdown formatted text as s
 
     `serve` command launch the HTTP server for showing slides on your web browser.
 
-    SEE MORE: [App::revealup::cli::serve](https://metacpan.org/pod/App::revealup::cli::serve)
+    SEE MORE: [App::revealup::cli::serve](https://metacpan.org/pod/App%3A%3Arevealup%3A%3Acli%3A%3Aserve)
 
 - `export`
 
@@ -53,7 +53,7 @@ App::revealup - HTTP Server application for viewing Markdown formatted text as s
 
     `export` command generate the files such as CSS of the theme and HTML for the slides.
 
-    SEE MORE: [App::revealup::cli::export](https://metacpan.org/pod/App::revealup::cli::export)
+    SEE MORE: [App::revealup::cli::export](https://metacpan.org/pod/App%3A%3Arevealup%3A%3Acli%3A%3Aexport)
 
 # LICENSE
 
@@ -70,4 +70,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-Yusuke Wada &lt;yusuke@kamawada.com>
+Yusuke Wada <yusuke@kamawada.com>
