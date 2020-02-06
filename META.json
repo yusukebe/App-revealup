@@ -26,11 +26,6 @@
       ]
    },
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "Module::Build::Tiny" : "0"
-         }
-      },
       "configure" : {
          "requires" : {
             "Module::Build::Tiny" : "0.035"
