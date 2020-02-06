@@ -2,6 +2,11 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.22 2020-02-06T12:51:59Z
+
+   - fixed test for MIME::Type 2.16 - thank you for the issue by @eserte
+   - update revealjs files!
+
 0.21 2015-08-28T12:56:58Z
 
    - fixed vertical slide serparater
