@@ -4,7 +4,7 @@
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.1.9, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Minilla/v3.1.19, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -72,11 +72,11 @@
       "homepage" : "https://github.com/yusukebe/App-revealup",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/yusukebe/App-revealup.git",
+         "url" : "https://github.com/yusukebe/App-revealup.git",
          "web" : "https://github.com/yusukebe/App-revealup"
       }
    },
-   "version" : "0.22",
+   "version" : "0.23",
    "x_authority" : "cpan:YUSUKEBE",
    "x_contributors" : [
       "A. Sinan Unur <nanis@cpan.org>",
@@ -84,6 +84,6 @@
       "sillymoose <davidnmfarrell@gmail.com>",
       "trapple <trapplejp@gmail.com>"
    ],
-   "x_serialization_backend" : "JSON::PP version 2.97001",
+   "x_serialization_backend" : "JSON::PP version 4.04",
    "x_static_install" : 1
 }

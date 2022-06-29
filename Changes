@@ -2,107 +2,110 @@ Revision history for Perl extension App-revealup
 
 {{$NEXT}}
 
+0.23 2022-06-29T00:30:28Z
+
+  - update "revealjs"
+
 0.22 2020-02-06T12:51:59Z
 
-   - fixed test for MIME::Type 2.16 - thank you for the issue by @eserte
-   - update revealjs files!
+  - fixed test for MIME::Type 2.16 - thank you for the issue by @eserte
+  - update revealjs files!
 
 0.21 2015-08-28T12:56:58Z
 
-   - fixed vertical slide serparater
-   - thank you for pull-request @trapple
+  - fixed vertical slide serparater
+  - thank you for pull-request @trapple
 
 0.20 2015-07-07T14:40:47Z
 
-   - update the "revealjs" library
+  - update the "revealjs" library
 
 0.19 2014-12-21T22:39:45Z
 
-   - fixed test about that .bmp file return the "image/x-ms-bmp" content-type
+  - fixed test about that .bmp file return the "image/x-ms-bmp" content-type
 
 0.18 2014-12-21T22:28:49Z
 
-    - fixed POD
-    - thank you for pull-request @sillymoose
+  - fixed POD
+  - thank you for pull-request @sillymoose
 
 0.17 2014-12-19T20:11:36Z
 
-    - improve implementation of base.pm
-    - fixed POD
+  - improve implementation of base.pm
+  - fixed POD
 
 0.16 2014-12-19T06:24:04Z
 
-    - fixed unwanted EOL conversion on Windows
-    - thank you for pull-request @nanis
+  - fixed unwanted EOL conversion on Windows
+  - thank you for pull-request @nanis
 
 0.15 2014-11-24T06:40:24Z
 
-    - make new sub commands!
-    - export command is enable to generate HTML file
-    - thank you for pull-request @htk291
-    - fixed HTML template tags
+  - make new sub commands!
+  - export command is enable to generate HTML file
+  - thank you for pull-request @htk291
+  - fixed HTML template tags
 
 0.14 2014-11-07T16:32:35Z
 
-    - update required modules
-    - output MIME-Types of static images and others
+  - update required modules
+  - output MIME-Types of static images and others
 
 0.13 2014-09-16T03:39:04Z
 
-    - fixed tests
-    - brush up POD
+  - fixed tests
+  - brush up POD
 
 0.12 2014-09-03T20:55:45Z
 
-    - write description about attributes in Markdown
-    - add tcp server tests
+  - write description about attributes in Markdown
+  - add tcp server tests
 
 0.11 2014-07-05T21:53:38Z
 
-    - fixed bug about a required module
+  - fixed bug about a required module
 
 0.10 2014-07-05T21:46:51Z
 
-    - use 'server' command instead of 'serve'
+  - use 'server' command instead of 'serve'
 
 0.09 2014-06-17T02:52:07Z
 
-    - support using old GetOpt::Long
+  - support using old GetOpt::Long
 
 0.08 2014-06-16T01:21:28Z
 
-    - validate command options
+  - validate command options
 
 0.07 2014-06-11T11:20:22Z
 
-    - enable --port option
-    - update sub-command pod
-    - made 'width' and 'height' commands
+  - enable --port option
+  - update sub-command pod
+  - made 'width' and 'height' commands
 
 0.06 2014-06-11T06:21:30Z
 
-    - fixed about relative file path in markdown texts.
+  - fixed about relative file path in markdown texts.
 
 0.05 2014-06-11T05:43:40Z
 
-    - made 'theme' command
-    - fixed some bugs
+  - made 'theme' command
+  - fixed some bugs
 
 0.04 2014-06-06T22:04:08Z
 
-    - support transition option on serve command
-    - update documents
-    - don't show verbose message when plackup
+  - support transition option on serve command
+  - update documents
+  - don't show verbose message when plackup
 
 0.03 2014-06-06T08:02:04Z
 
-    - removed Test::Fatal dependency, thanks to sillymoose
+  - removed Test::Fatal dependency, thanks to sillymoose
 
 0.02 2014-05-25T11:35:55Z
 
-    - fixed bugs about themes
+  - fixed bugs about themes
 
 0.01 2014-05-25T10:32:31Z
 
-    - original version
-
+  - original version
