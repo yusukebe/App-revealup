@@ -75,7 +75,7 @@ sub app {
             if($self->theme_path->exists) {
                 $path = path('.', $self->theme_path);
             }else{
-                my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs css theme/]);
+                my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs dist theme/]);
                 $path = $reveal_theme_path->child($self->theme_path->basename);
             }
             return App::revealup::util::path_to_res($path) if $path->exists;

@@ -24,7 +24,7 @@ sub build_html {
         }
         my $p = path('.', $self->theme);
         if(!$p->exists) {
-            $p = path('revealjs','css','theme',$self->theme);
+            $p = path('revealjs','dist','theme',$self->theme);
             $self->theme_path($p);
         }
         $self->theme_path($p);

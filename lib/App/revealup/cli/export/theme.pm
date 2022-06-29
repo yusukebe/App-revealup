@@ -27,7 +27,7 @@ sub run {
     }
 
     my $base = $self->base !~ m!\.css$! ? $self->base . '.css' : $self->base;
-    my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs css theme/]);
+    my $reveal_theme_path = App::revealup::util::share_path([qw/share revealjs dist theme/]);
     my $base_path = $reveal_theme_path->child($base);
 
     if (!$base_path->exists) {
